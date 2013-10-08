@@ -131,48 +131,6 @@ label {
 /* End of Fro's CSS*/
 
 /* Juston's CSS*/
-.nav.nav-admin {
-	font-size: 14px;
-	margin-bottom: 20px;
-}
-.table td {
-	line-height: 30px;
-}
-.toggle-off.btn {
-	font-size: 11px;
-	font-weight: bold;
-	padding-left: 20px !important;
-	padding-right: 10px !important;
-	color: #111;
-	text-shadow: none;
-}
-
-.btn-image {
-	margin-left: 10px;
-}
-
-#icon-question {
-	dislay:inline;
-}
-
-.toggle-on.btn {
-	font-size: 11px;
-	font-weight: bold;
-}
-
-.btn.dropdown-toggle {
-	background-color: #E2EEFF;
-	background-image: none !important;
-	border-color: #49CDCD;
-}
-
-.btn.active {
-  background-color: #FF6B6B !important;
-  /**background-color: #d9d9d9 !important;*/
-}
-/*End of Juston's CSS*/
-
-/* Juston's CSS*/
 
 .container {
 	width: 1280px;
@@ -202,7 +160,7 @@ label {
 }
 
 .table td {
-	line-height: 30px;
+	line-height: 30px !important;
 }
 
 .table tr:hover {
@@ -212,13 +170,9 @@ label {
 .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
 	background-color: #C8D7FD !important;
 }
-.toggle-off.btn {
-	font-size: 11px;
-	font-weight: bold;
-	padding-left: 20px !important;
-	padding-right: 10px !important;
-	color: #111;
-	text-shadow: none;
+
+.btn {
+	line-height: normal !important;
 }
 
 .btn-image {
@@ -229,9 +183,31 @@ label {
 	dislay:inline;
 }
 
+#toggle-admin {
+	width: 140px;
+}
+
+.toggle.btn {
+	padding: 4px 10px !important;
+}
+
+.toggle-handle.btn {
+	padding: 4px 10px !important;
+}
+
 .toggle-on.btn {
 	font-size: 11px;
 	font-weight: bold;
+	padding-right: 20px !important;
+}
+
+.toggle-off.btn {
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 15px !important;
+	padding-right: 10px !important;
+	color: #111;
+	text-shadow: none;
 }
 
 .btn.dropdown-toggle {
@@ -241,31 +217,21 @@ label {
 }
 
 .btn.active {
-  background-color: #FF6B6B !important;
+  background-color: #FF5454  !important;
   /**background-color: #d9d9d9 !important;*/
 }
 /*End of Juston's CSS*/
 
-/*Bootstrap Toggle*/
+/*Bootstrap-toggle CSS*/
 /*
 * bootstrap-toggle v1.0
 * -----------------------------------
 * Copyright 2013 Min Hur, The New York Times Company
 * This content is released under the MIT License.
 */
-#toogle-admin {
-	width: 120px;
-}
-
-.toggle-off.btn {
-	font-size: 12px;
-	padding-left: 20px !important;
-	padding-right: 10px !important;
-}
-
 .toggle {
 	min-width: 40px;
-	height: 20px;
+	height: 30px;
 	position: relative;
 	overflow: hidden;
 }
@@ -318,19 +284,19 @@ label {
 .toggle-handle.btn-mini {
 	top: -1px;
 }
-.toggle.btn { min-width: 30px; }
-.toggle-on.btn { padding-right: 24px; }
-.toggle-off.btn { padding-left: 24px; }
+.toggle.btn .btn-default{ min-width: 15px; }
+.toggle-on.btn .btn-default{ padding-right: 24px; }
+.toggle-off.btn .btn-default{ padding-left: 24px; }
 
-.toggle.btn-large { min-width: 40px; }
-.toggle-on.btn-large { padding-right: 35px; }
-.toggle-off.btn-large { padding-left: 35px; }
+.toggle.btn-lg { min-width: 40px; }
+.toggle-on.btn-lg { padding-right: 35px; }
+.toggle-off.btn-lg { padding-left: 35px; }
 
-.toggle.btn-small { min-width: 25px; }
-.toggle-on.btn-small { padding-right: 20px; }
-.toggle-off.btn-small { padding-left: 20px; }
+.toggle.btn-sm { min-width: 25px; }
+.toggle-on.btn-sm { padding-right: 20px; }
+.toggle-off.btn-sm { padding-left: 20px; }
 
-.toggle.btn-mini { min-width: 20px; }
-.toggle-on.btn-mini { padding-right: 12px; }
-.toggle-off.btn-mini { padding-left: 12px; }
+.toggle.btn-xs { min-width: 20px; }
+.toggle-on.btn-xs { padding-right: 12px; }
+.toggle-off.btn-xs { padding-left: 12px; }
 /*End Bootstrap Toggle*/
