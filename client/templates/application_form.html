@@ -1,5 +1,5 @@
 <template name="application_form">
-	<div class="wrapper">
+	<div class="login-wrapper">
 		<div class="vetro-af-container">
 			<div class="vetro-header">
 				<h1>Vetro Partnership Form</h1>
@@ -16,7 +16,7 @@
 						<td>John Doe</td>
 						<td><b>Category *</b></td>
 						<td>
-							<select style="width:214px;">
+							<select style="width:210px;">
 								<option selected>Gaming</option>
 								<option>Designs</option>
 								<option>Video Blogs</option>
@@ -41,7 +41,13 @@
 						<td><b>Total Upload views</b></td>
 						<td>30, 407, 250</td>
 						<td><b>Copyright status *</b></td>
-						<td><input type="file" style="width:210px;"></td>
+						<td>
+						<div class="copyright-file">
+							<div class="hoverstep" style="display:none;">Hello</div>
+							<span class="glyphicon glyphicon-question-sign hover-step" style="margin-left: -24px;"></span>
+						</div>
+						<span><input type="file" style="width: 168px; display: inline-block; margin-left: -15px;"></span>
+						</td>
 					</tr>
 					<tr>
 						<td><b>Total Subscribers</b></td>
@@ -56,14 +62,14 @@
 					</tr>
 					<tr>
 						<td><div class="td-style2"><b>Country</b></div></td>
-						<td><div class="td-style2"><b>Philippines</b></div></td>
+						<td><div class="td-style2">Philippines</div></td>
 						<td colspan="2"><textarea class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td><button class="submitbutton">SUBMIT</button></td>
+						<td><button type="submit" class="btn btn-primary submitbutton">Submit</button></td>
 					</tr>
 				</table>
 			</div>
