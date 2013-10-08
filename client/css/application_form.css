@@ -1,0 +1,131 @@
+/* Fro's CSS */
+/** {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Calibri', serif;
+	font-size: 13px;
+	color: #5C6161;
+	line-height: 23px;
+	margin: 0;
+	background: url('../images/bg.png');
+}
+
+.wrapper {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+}	
+
+.container {
+	width: 460px;
+	padding: 140px 0 190px 0;
+	margin: auto;
+	line-height: 3em;
+}
+
+.container h1 {
+	text-transform: uppercase;
+	text-align: center;
+	color: #FFF;
+}
+
+.container h1 span {
+	color: orange;
+}
+
+.login-box {
+	margin-left: 8px;
+	padding: 26px 24px 46px;
+	font-weight: normal;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+	box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.login_button {
+	background-image: linear-gradient(to bottom,#2e9fd2,#21759b);
+	border-color: #1b607f;
+	-webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,0.6);
+	box-shadow: inset 0 1px 0 rgba(120,200,230,0.6);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+	cursor: pointer;
+	padding: 5px;
+	margin: 5px 0px;
+}
+
+input[type="text"], input[type="password"]{
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: inset;
+	padding: 5px;
+	width: 95%;
+}
+
+label {
+	font-size: 17px;
+}
+
+.login_button {
+	float: right;
+	border-radius: 3px;
+}
+
+.vetro-af-container {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.vetro-header {
+	padding: 15px 35px;
+	background: #0b61a4;
+}
+
+.vetro-header h1 {
+	color: #FFF;
+}
+
+.vetro-container {
+	background: #f7f7f7;
+	padding: 15px 40px;
+}
+
+.vetro-container span {
+	margin-left: 12px;
+}
+
+.vetro-container table {
+	margin-top: 10px;
+}
+
+.vetro-container table tr td {
+	padding: 5px 10px;
+	width: 220px;
+}
+
+.submitbutton {
+	padding: 5px;
+	float: right
+}
+
+.musicinfo-box {
+	height: 100px;
+	width: 460px;
+}
+
+.td-style {
+	margin-top: -25px;
+}
+
+.td-style2 {
+	height: 110px;
+	margin-top: -50px;
+}*/
+/* End of Fro's CSS*/
