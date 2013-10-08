@@ -4,6 +4,16 @@
 * Copyright 2013 Min Hur, The New York Times Company
 * This content is released under the MIT License.
 */
+#toogle-admin {
+	width: 120px;
+}
+
+.toggle-off.btn {
+	font-size: 12px;
+	padding-left: 20px !important;
+	padding-right: 10px !important;
+}
+
 .toggle {
 	min-width: 40px;
 	height: 20px;
