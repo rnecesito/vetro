@@ -192,6 +192,15 @@ label {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #AAA;
 }
+
+.table th {
+	text-align: center;
+}
+
+.table tr{
+	text-align: center;
+}
+
 .table td {
 	line-height: 30px;
 }
