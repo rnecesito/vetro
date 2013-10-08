@@ -146,9 +146,17 @@ label {
 }
 .nav.nav-admin {
 	font-size: 14px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #AAA;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: #fAfAfA;
+}
+
+.table {
+	margin-bottom: 15px;
 }
 
 .table th {
@@ -204,7 +212,7 @@ label {
 .toggle-off.btn {
 	font-size: 11px;
 	font-weight: bold;
-	padding-left: 15px !important;
+	padding-left: 16px !important;
 	padding-right: 10px !important;
 	color: #111;
 	text-shadow: none;
@@ -217,16 +225,37 @@ label {
 }
 
 .btn.active {
-  background-color: #FF5454  !important;
+  background-color: #F13C3C  !important;
   /**background-color: #d9d9d9 !important;*/
 }
 
 .div-pagination {
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 5px;
 	vertical-align: middle;
 	display: block;
-	width: 10em;
+	width: auto;
+}
+
+.pagination {
+	margin: 10px 0;
+}
+
+.btn-glyph {
+	padding: 2px 7px;
+	margin-left: 2px;
+	zoom: 1;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.glyphicon-question-sign {
+	margin-left: 2px;
+	top: 3px;
+	zoom: 110%;
+}
+
+.glyphicon-picture {
+	font-size: 175%;
+	top: 0px;
 }
 /*End of Juston's CSS*/
 
