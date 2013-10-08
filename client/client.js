@@ -35,3 +35,15 @@ Template.oauthtest.rendered = function(){
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 	})();
 }
+
+Template.application_form.rendered = function(){
+$(function(){
+    $(".copyright-file").hover(function(){
+      $(this).find(".hover-step").fadeIn();
+    }
+                    ,function(){
+                        $(this).find(".hover-step").fadeOut();
+                    }
+                   );        
+	});
+}
