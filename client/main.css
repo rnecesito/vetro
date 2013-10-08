@@ -1,0 +1,43 @@
+
+
+/* Juston's CSS*/
+.nav.nav-admin {
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+.table td {
+	line-height: 30px;
+}
+.toggle-off.btn {
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 20px !important;
+	padding-right: 10px !important;
+	color: #111;
+	text-shadow: none;
+}
+
+.btn-image {
+	margin-left: 10px;
+}
+
+#icon-question {
+	dislay:inline;
+}
+
+.toggle-on.btn {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.btn.dropdown-toggle {
+	background-color: #E2EEFF;
+	background-image: none !important;
+	border-color: #49CDCD;
+}
+
+.btn.active {
+  background-color: #FF6B6B !important;
+  /**background-color: #d9d9d9 !important;*/
+}
+/*End of Juston's CSS*/
