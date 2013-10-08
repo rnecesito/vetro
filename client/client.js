@@ -1,8 +1,9 @@
 Meteor.startup(function(){
-	$(document).ready(function() {
-    	$('.dropdown-menu').dropdown()
-	});
+	
+});
 
+Template.admin_backpanel.rendered = function(){
+	console.log("Rendered");
 	!function ($) {
 		$(document).on('click.bootstrap-toggle', '[data-toggle^=toggle]', function(e) {
 			var $toggle = $(this);
@@ -18,4 +19,4 @@ Meteor.startup(function(){
 			}
 		});
 	}(window.jQuery);
-});
+}
