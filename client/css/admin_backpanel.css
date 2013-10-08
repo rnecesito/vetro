@@ -1,3 +1,132 @@
+/* Juston's CSS*/
+
+.container {
+	width: 1280px;
+	max-width: none;
+}
+
+.nav > li > a {
+	padding: 7px 12px;
+}
+
+.nav-pills > li + li {
+	margin-left: 5px;
+}
+.nav.nav-admin {
+	font-size: 14px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #AAA;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: #fAfAfA;
+}
+
+.table {
+	margin-bottom: 15px;
+}
+
+.table th {
+	text-align: center;
+}
+
+.table tr{
+	text-align: center;
+}
+
+.table td {
+	line-height: 30px !important;
+}
+
+.table tr:hover {
+	color: #000;
+}
+
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+	background-color: #C8D7FD !important;
+}
+
+.btn {
+	line-height: normal !important;
+}
+
+.btn-image {
+	margin-left: 10px;
+}
+
+#icon-question {
+	dislay:inline;
+}
+
+#toggle-admin {
+	width: 140px;
+}
+
+.toggle.btn {
+	padding: 4px 10px !important;
+}
+
+.toggle-handle.btn {
+	padding: 4px 10px !important;
+}
+
+.toggle-on.btn {
+	font-size: 11px;
+	font-weight: bold;
+	padding-right: 20px !important;
+}
+
+.toggle-off.btn {
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 16px !important;
+	padding-right: 10px !important;
+	color: #111;
+	text-shadow: none;
+}
+
+.btn.dropdown-toggle {
+	background-color: #E2EEFF;
+	background-image: none !important;
+	border-color: #49CDCD;
+}
+
+.btn.active {
+  background-color: #F13C3C  !important;
+  /**background-color: #d9d9d9 !important;*/
+}
+
+.div-pagination {
+	margin-left: 5px;
+	vertical-align: middle;
+	display: block;
+	width: auto;
+}
+
+.pagination {
+	margin: 10px 0;
+}
+
+.btn-glyph {
+	padding: 2px 7px;
+	margin-left: 2px;
+	zoom: 1;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.glyphicon-question-sign {
+	margin-left: 2px;
+	top: 3px;
+	zoom: 110%;
+}
+
+.glyphicon-picture {
+	font-size: 175%;
+	top: 0px;
+}
+/*End of Juston's CSS*/
+
 /*Bootstrap-toggle CSS*/
 /*
 * bootstrap-toggle v1.0
@@ -76,103 +205,3 @@
 .toggle-on.btn-xs { padding-right: 12px; }
 .toggle-off.btn-xs { padding-left: 12px; }
 /*End Bootstrap Toggle*/
-
-/* Juston's CSS*/
-
-.container {
-	width: 1280px;
-	max-width: none;
-}
-
-.nav > li > a {
-	padding: 7px 12px;
-}
-
-.nav-pills > li + li {
-	margin-left: 5px;
-}
-.nav.nav-admin {
-	font-size: 14px;
-	margin-bottom: 20px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #AAA;
-}
-
-.table th {
-	text-align: center;
-}
-
-.table tr{
-	text-align: center;
-}
-
-.table td {
-	line-height: 30px !important;
-}
-
-.table tr:hover {
-	color: #000;
-}
-
-.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
-	background-color: #C8D7FD !important;
-}
-
-.btn {
-	line-height: normal !important;
-}
-
-.btn-image {
-	margin-left: 10px;
-}
-
-#icon-question {
-	dislay:inline;
-}
-
-#toggle-admin {
-	width: 140px;
-}
-
-.toggle.btn {
-	padding: 4px 10px !important;
-}
-
-.toggle-handle.btn {
-	padding: 4px 10px !important;
-}
-
-.toggle-on.btn {
-	font-size: 11px;
-	font-weight: bold;
-	padding-right: 20px !important;
-}
-
-.toggle-off.btn {
-	font-size: 11px;
-	font-weight: bold;
-	padding-left: 15px !important;
-	padding-right: 10px !important;
-	color: #111;
-	text-shadow: none;
-}
-
-.btn.dropdown-toggle {
-	background-color: #E2EEFF;
-	background-image: none !important;
-	border-color: #49CDCD;
-}
-
-.btn.active {
-  background-color: #FF5454  !important;
-  /**background-color: #d9d9d9 !important;*/
-}
-
-.div-pagination {
-	margin-left: auto;
-	margin-right: auto;
-	vertical-align: middle;
-	display: block;
-	width: 10em;
-}
-/*End of Juston's CSS*/
