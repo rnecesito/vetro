@@ -3,7 +3,7 @@ Meteor.startup(function(){
 });
 
 Router.map(function(){
-	this.route('application_form');
+	this.route('application_form',{path: '/'});
 	this.route('admin_backpanel');
 	this.route('login');
 	this.route('oauthtest');
@@ -29,11 +29,11 @@ Template.admin_backpanel.rendered = function(){
 }
 
 Template.oauthtest.rendered = function(){
-	(function() {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/client:plusone.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	})();
+	// (function() {
+	// 	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	// 	po.src = 'https://apis.google.com/js/client:plusone.js';
+	// 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	// })();
 }
 
 Template.application_form.rendered = function(){
