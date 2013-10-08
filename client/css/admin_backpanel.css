@@ -6,11 +6,11 @@
 }
 
 .nav > li > a {
-	padding: 7px 12px;
+	padding: 7px 8px;
 }
 
 .nav-pills > li + li {
-	margin-left: 5px;
+	margin-left: 6px;
 }
 .nav.nav-admin {
 	font-size: 14px;
@@ -55,6 +55,15 @@
 	margin-left: 10px;
 }
 
+.dropdown-menu {
+	min-width: 125px;
+}
+
+.dropdown-menu.row-menu {
+	min-width: 75px;
+	right: 0px;
+}
+
 #icon-question {
 	dislay:inline;
 }
@@ -90,6 +99,7 @@
 	background-color: #E2EEFF;
 	background-image: none !important;
 	border-color: #49CDCD;
+	padding: 6px 5px;
 }
 
 .btn.active {
@@ -105,7 +115,24 @@
 }
 
 .pagination {
-	margin: 10px 0;
+	margin: 10px 5px;
+	float: left;
+}
+
+.input-group {
+	float: right;
+	margin: 10px 5px;
+	width: 140px;
+}
+
+.input-group .form-control {
+	width: 100%;
+	margin-bottom: 0;
+	height: 30px
+}
+
+.dropdown-menu > li.denied > a:hover, .dropdown-menu > li.denied  > a:focus {
+	background-color: #CA4242;
 }
 
 .btn-glyph {
