@@ -145,16 +145,16 @@
 							<td>10000</td>
 							<td>juston.skype</td>
 							<td>
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+								<div id="toogle-admin" class="toggle btn btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
+										<label class="toggle-on btn btn-primary">In Good Standing</label>
+										<label class="toggle-off btn active">Not in Good Standing</label>
+										<span class="toggle-handle btn"></span>     
 									</div>
 								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-picture"></span>					</button>
+								<i class="icon-question-sign"></i>
+								<button class="btn btn-small btn-primary btn-image" type="button">Image</button>
 							</td>
 							<td>
 								<div class="btn-group">
@@ -178,15 +178,15 @@
 							<td>test</td>
 							<td>test</td>
 							<td>               
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+								<div id="toogle-admin" class="toggle btn btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
+										<label class="toggle-on btn btn-primary">In Good Standing</label>
+										<label class="toggle-off btn active">Not in Good Standing</label>
+										<span class="toggle-handle btn"></span>     
 									</div>
 								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
+								<i class="icon-question-sign"></i>
 								<button class="btn btn-small btn-primary btn-image" type="button">Image</button>
 							</td>
 							<td>
@@ -211,15 +211,15 @@
 							<td>test</td>
 							<td>test</td>
 							<td>                
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+								<div id="toogle-admin" class="toggle btn btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
+										<label class="toggle-on btn btn-primary">In Good Standing</label>
+										<label class="toggle-off btn active">Not in Good Standing</label>
+										<span class="toggle-handle btn"></span>     
 									</div>
 								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
+								<i class="icon-question-sign"></i>
 								<button class="btn btn-small btn-primary btn-image" type="button">Image</button>
 							</td>
 							<td>
@@ -238,17 +238,6 @@
 						</tr>
 					</tbody>
 				</table>
-				<div class="div-pagination">
-					<ul class="pagination">
-						 <li><a href="#">&laquo;</a></li>
-						 <li><a href="#">1</a></li>
-						 <li><a href="#">2</a></li>
-						 <li><a href="#">3</a></li>
-						 <li><a href="#">4</a></li>
-						 <li><a href="#">5</a></li>
-						 <li><a href="#">&raquo;</a></li>
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -279,6 +268,7 @@
 	</div>
 </template>
 
+
 <template name="navbarmain">
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-header">
@@ -298,4 +288,30 @@
 			</ul>
 		</div><!--/.navbar-collapse -->
 	</div>
+</template>
+
+<template name="test_application">
+	<table>
+		<tr>
+			<td>
+				Full Legal Name:
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+	</table>
+</template>
+
+<template name="oauthtest">
+	<span id="signinButton">
+  		<span
+		    class="g-signin"
+		    data-callback="signinCallback"
+		    data-clientid="CLIENT_ID"
+		    data-cookiepolicy="single_host_origin"
+		    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+		    data-scope="https://www.googleapis.com/auth/plus.login">>
+  		</span>
+	</span>
 </template>

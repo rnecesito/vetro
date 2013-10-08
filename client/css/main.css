@@ -308,3 +308,8 @@ label {
 .toggle-on.btn-xs { padding-right: 12px; }
 .toggle-off.btn-xs { padding-left: 12px; }
 /*End Bootstrap Toggle*/
+
+/*Rey's CSS*/
+body{
+	padding-top: 60px;
+}
