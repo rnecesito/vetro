@@ -29,11 +29,11 @@ Template.admin_backpanel.rendered = function(){
 }
 
 Template.oauthtest.rendered = function(){
-	(function() {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/client:plusone.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	})();
+	// (function() {
+	// 	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	// 	po.src = 'https://apis.google.com/js/client:plusone.js';
+	// 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	// })();
 }
 
 Template.application_form.rendered = function(){
