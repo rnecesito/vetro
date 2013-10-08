@@ -1,0 +1,327 @@
+/* Fro's CSS */
+/** {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Calibri', serif;
+	font-size: 13px;
+	color: #5C6161;
+	line-height: 23px;
+	margin: 0;
+	background: url('../images/bg.png');
+}
+
+.wrapper {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+}	
+
+.container {
+	width: 460px;
+	padding: 140px 0 190px 0;
+	margin: auto;
+	line-height: 3em;
+}
+
+.container h1 {
+	text-transform: uppercase;
+	text-align: center;
+	color: #FFF;
+}
+
+.container h1 span {
+	color: orange;
+}
+
+.login-box {
+	margin-left: 8px;
+	padding: 26px 24px 46px;
+	font-weight: normal;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+	box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.login_button {
+	background-image: linear-gradient(to bottom,#2e9fd2,#21759b);
+	border-color: #1b607f;
+	-webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,0.6);
+	box-shadow: inset 0 1px 0 rgba(120,200,230,0.6);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+	cursor: pointer;
+	padding: 5px;
+	margin: 5px 0px;
+}
+
+input[type="text"], input[type="password"]{
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: inset;
+	padding: 5px;
+	width: 95%;
+}
+
+label {
+	font-size: 17px;
+}
+
+.login_button {
+	float: right;
+	border-radius: 3px;
+}
+
+.vetro-af-container {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.vetro-header {
+	padding: 15px 35px;
+	background: #0b61a4;
+}
+
+.vetro-header h1 {
+	color: #FFF;
+}
+
+.vetro-container {
+	background: #f7f7f7;
+	padding: 15px 40px;
+}
+
+.vetro-container span {
+	margin-left: 12px;
+}
+
+.vetro-container table {
+	margin-top: 10px;
+}
+
+.vetro-container table tr td {
+	padding: 5px 10px;
+	width: 220px;
+}
+
+.submitbutton {
+	padding: 5px;
+	float: right
+}
+
+.musicinfo-box {
+	height: 100px;
+	width: 460px;
+}
+
+.td-style {
+	margin-top: -25px;
+}
+
+.td-style2 {
+	height: 110px;
+	margin-top: -50px;
+}*/
+/* End of Fro's CSS*/
+
+/* Juston's CSS*/
+.nav.nav-admin {
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+.table td {
+	line-height: 30px;
+}
+.toggle-off.btn {
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 20px !important;
+	padding-right: 10px !important;
+	color: #111;
+	text-shadow: none;
+}
+
+.btn-image {
+	margin-left: 10px;
+}
+
+#icon-question {
+	dislay:inline;
+}
+
+.toggle-on.btn {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.btn.dropdown-toggle {
+	background-color: #E2EEFF;
+	background-image: none !important;
+	border-color: #49CDCD;
+}
+
+.btn.active {
+  background-color: #FF6B6B !important;
+  /**background-color: #d9d9d9 !important;*/
+}
+/*End of Juston's CSS*/
+
+/* Juston's CSS*/
+
+.container {
+	width: 1280px;
+	max-width: none;
+}
+
+.nav > li > a {
+	padding: 7px 12px;
+}
+
+.nav-pills > li + li {
+	margin-left: 5px;
+}
+.nav.nav-admin {
+	font-size: 14px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #AAA;
+}
+.table td {
+	line-height: 30px;
+}
+
+.table tr:hover {
+	color: #000;
+}
+
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+	background-color: #C8D7FD !important;
+}
+.toggle-off.btn {
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 20px !important;
+	padding-right: 10px !important;
+	color: #111;
+	text-shadow: none;
+}
+
+.btn-image {
+	margin-left: 10px;
+}
+
+#icon-question {
+	dislay:inline;
+}
+
+.toggle-on.btn {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.btn.dropdown-toggle {
+	background-color: #E2EEFF;
+	background-image: none !important;
+	border-color: #49CDCD;
+}
+
+.btn.active {
+  background-color: #FF6B6B !important;
+  /**background-color: #d9d9d9 !important;*/
+}
+/*End of Juston's CSS*/
+
+/*Bootstrap Toggle*/
+/*
+* bootstrap-toggle v1.0
+* -----------------------------------
+* Copyright 2013 Min Hur, The New York Times Company
+* This content is released under the MIT License.
+*/
+#toogle-admin {
+	width: 120px;
+}
+
+.toggle-off.btn {
+	font-size: 12px;
+	padding-left: 20px !important;
+	padding-right: 10px !important;
+}
+
+.toggle {
+	min-width: 40px;
+	height: 20px;
+	position: relative;
+	overflow: hidden;
+}
+.toggle input[type="checkbox"] {
+	display: none;
+}
+.toggle-group {
+	position: absolute;
+	width: 200%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	transition: left 0.35s;
+	-webkit-transition: left 0.35s;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.toggle.off .toggle-group {
+	left: -100%;
+}
+.toggle-on {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 50%;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+}
+.toggle-off {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	right: 0;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+}
+.toggle-handle {
+	position: relative;
+	margin: 0 auto;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	height: 100%;
+	width: 0px;
+	border-width: 0 1px;
+}
+.toggle-handle.btn-mini {
+	top: -1px;
+}
+.toggle.btn { min-width: 30px; }
+.toggle-on.btn { padding-right: 24px; }
+.toggle-off.btn { padding-left: 24px; }
+
+.toggle.btn-large { min-width: 40px; }
+.toggle-on.btn-large { padding-right: 35px; }
+.toggle-off.btn-large { padding-left: 35px; }
+
+.toggle.btn-small { min-width: 25px; }
+.toggle-on.btn-small { padding-right: 20px; }
+.toggle-off.btn-small { padding-left: 20px; }
+
+.toggle.btn-mini { min-width: 20px; }
+.toggle-on.btn-mini { padding-right: 12px; }
+.toggle-off.btn-mini { padding-left: 12px; }
+/*End Bootstrap Toggle*/
