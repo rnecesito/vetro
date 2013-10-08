@@ -3,7 +3,7 @@ Meteor.startup(function(){
 });
 
 Router.map(function(){
-	this.route('application_form');
+	this.route('application_form',{path: '/'});
 	this.route('admin_backpanel');
 	this.route('login');
 	this.route('oauthtest');

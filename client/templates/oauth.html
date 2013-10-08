@@ -1,0 +1,7 @@
+<template name="oauthtest">
+	{{loginButtons}}
+
+	{{#if currentUser}}
+		{{currentUser.profile.login}}
+	{{/if}}
+</template>
