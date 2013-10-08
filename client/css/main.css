@@ -220,6 +220,14 @@ label {
   background-color: #FF5454  !important;
   /**background-color: #d9d9d9 !important;*/
 }
+
+.div-pagination {
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: middle;
+	display: block;
+	width: 10em;
+}
 /*End of Juston's CSS*/
 
 /*Bootstrap-toggle CSS*/
