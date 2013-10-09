@@ -26,6 +26,12 @@ Template.admin_backpanel.rendered = function(){
 			}
 		});
 	}(window.jQuery);
+
+	$("#btnExport").click(function(e) {
+    window.open('data:application/vnd.ms-excel,' + $('#admintable').html());
+    e.preventDefault();
+});
+
 }
 
 Template.oauthtest.rendered = function(){
@@ -47,3 +53,4 @@ $(function(){
                    );        
 	});
 }
+
