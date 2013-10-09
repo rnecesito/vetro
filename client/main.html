@@ -31,21 +31,26 @@
 		}
 
 		function makeApiCall() {
-        	gapi.client.load('plus', 'v3', function() {
+        	gapi.client.load('plus', 'v1', function() {
           	var request = gapi.client.plus.people.get({
             	'userId': 'me'
           	});
           	request.execute(function(resp) {
             	var heading = document.createElement('h4');
             	var image = document.createElement('img');
-            	image.src = resp.image.url;
-            	heading.appendChild(image);
-            	heading.appendChild(document.createTextNode(resp.displayName));
+            	//image.src = resp.image.url;
+            	//heading.appendChild(image);
+            	//heading.appendChild(document.createTextNode(resp.displayName));
 
-            	document.getElementById('content').appendChild(heading);
+//            	document.getElementById('content').appendChild(heading);
+                console.log('Display Name: ' + resp.displayName);
+                console.log('Display Name: ' + resp.email);
           	});
         });
+
       }
+
+
     </script>
 </head>
 

@@ -10,9 +10,26 @@
 				<li>Must have no copyright strikes.</li>
 				<li>Channel over 1 month old.</li>
 				<li>If you have music you need to provide proof you have permission to use it.</li>
+				<table>					{{#unless currentUser}}
+					<tr>
+						<!-- <input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"> -->
+						<span id="signinButton">
+		  					<span
+		    					class="g-signin"
+							    data-callback="signinCallback"
+							    data-clientid="202055712427.apps.googleusercontent.com"
+							    data-cookiepolicy="single_host_origin"
+							    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+							    data-scope="https://www.googleapis.com/auth/plus.me"
+							    data-scope="https://www.googleapis.com/auth/plus.login"
+							    >
+		  					</span>
+						</span>
+					</tr>
 				<table>					
 					{{#unless currentUser}}
 					<tr><input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"></tr>
+
 					{{else}}
 					<tr><input type="button" class="btn btn-danger logoutgplus" value="Logout from Google+"></tr>
 					{{/unless}}

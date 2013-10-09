@@ -19,6 +19,12 @@
 	border-bottom: 1px solid #AAA;
 }
 
+#btnExport {
+float: right;
+margin: 10px 5px;
+width: 125px;
+}
+
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
 	background-color: #fAfAfA;
 }

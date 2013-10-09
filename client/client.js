@@ -26,6 +26,12 @@ Template.admin_backpanel.rendered = function(){
 			}
 		});
 	}(window.jQuery);
+
+	$("#btnExport").click(function(e) {
+    window.open('data:application/vnd.ms-excel,' + $('#admintable').html());
+    e.preventDefault();
+});
+
 }
 
 Template.admin_backpanel.helpers({
@@ -159,4 +165,3 @@ function json_decode (str_json) {
 		this.php_js.last_error_json = 4; // usable by json_last_error()
 		return null;
 }
-
