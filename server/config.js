@@ -4,12 +4,10 @@ Accounts.loginServiceConfiguration.remove({
 
 Accounts.loginServiceConfiguration.insert({
 	service: "google",
-<<<<<<< HEAD
 	clientId: "1062445461634.apps.googleusercontent.com",
 	secret: "iJRIeBUiKnuyjDq1JV-br9YT"
 });
 
-=======
 	clientId: "202055712427.apps.googleusercontent.com",
 	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
 });
@@ -27,4 +25,3 @@ Meteor.methods({
       	});
     }
 });
->>>>>>> bc83fe7111ace9c230a450c0eb35ba7c444e4bc8
