@@ -44,7 +44,7 @@
 			</div>
 				<div class="div-pagination">
 					<ul class="pagination">
-						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">&laquo;</a></li>	
 						 <li><a href="#">1</a></li>
 						 <li><a href="#">2</a></li>
 						 <li><a href="#">3</a></li>
@@ -94,24 +94,42 @@
 							<td>{{daily_views}}</td>
 							<td>{{subscribers}}</td>
 							<td>{{skype_email}}</td>
-							<td>{{copyright_status}}
+							<td>
+								{{#if copyright_status}}
 								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
-										{{#if copyright_status}}
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
 										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										{{else}}
-										<label class="toggle-on btn btn-default btn-primary active">In Good Standing</label>
-										<label class="toggle-off btn btn-default ">Not in Good Standing</label>
-										{{/if}}
 										<span class="toggle-handle btn btn-default"></span>     
 									</div>
 								</div>
+								{{else}}
+								<div id="toggle-admin" class="toggle btn btn-default active off" data-toggle="toggle">
+									<input type="checkbox" checked>
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
 								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span>		</button>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
 							</td>
-							<td>{{status}}</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
 							<td>{{category}}</td>
 						</tr>
 						{{/each}}
@@ -132,7 +150,7 @@
 									</div>
 								</div>
 								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span>		</button>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
 							</td>
 							<td>
 								<div class="btn-group">
@@ -165,7 +183,7 @@
 									</div>
 								</div>
 								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span>		</button>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
 							</td>
 							<td>
 								<div class="btn-group">
@@ -198,7 +216,7 @@
 									</div>
 								</div>
 								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span>		</button>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
 							</td>
 							<td>
 								<div class="btn-group">

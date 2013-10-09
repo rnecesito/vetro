@@ -7,7 +7,7 @@ Router.map(function(){
 	this.route('admin_backpanel');
 	this.route('login');
 	this.route('oauthtest');
-	this.route('application_success');
+	this.route('application_success',{path: '/application_form/success'});
 });
 
 Template.admin_backpanel.rendered = function(){
@@ -31,6 +31,9 @@ Template.admin_backpanel.rendered = function(){
 Template.admin_backpanel.helpers({
 	applicants: function(){
 		return applications.find();
+	},
+	getNS: function(cs){
+		return application_status.find({cs:cs});
 	}
 })
 
