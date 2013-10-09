@@ -97,8 +97,8 @@
 							<td>{{skype_email}}</td>
 							<td>
 								{{#if copyright_status}}
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
-									<input type="checkbox" checked>
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
 										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
@@ -106,8 +106,8 @@
 									</div>
 								</div>
 								{{else}}
-								<div id="toggle-admin" class="toggle btn btn-default active off" data-toggle="toggle">
-									<input type="checkbox" checked>
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
 										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
@@ -142,7 +142,7 @@
 							<td>10000</td>
 							<td>juston.skype</td>
 							<td>
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+								<div id="{{_id}}" class="toggle-admin toggle btn btn-default btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
@@ -175,7 +175,7 @@
 							<td>10000</td>
 							<td>angelicism.skype</td>
 							<td>               
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+								<div id="{{_id}}" class="toggle-admin toggle btn btn-default btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
@@ -208,7 +208,7 @@
 							<td>100000</td>
 							<td>jimuana.skype</td>
 							<td>                
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+								<div id="{{_id}}" class="toggle-admin toggle btn btn-default btn-primary" data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>

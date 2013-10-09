@@ -1,5 +1,5 @@
 Meteor.startup(function(){
-	
+	Session.setDefault('status_filter', 'Applied');
 });
 
 Router.map(function(){
@@ -42,6 +42,19 @@ Template.admin_backpanel.helpers({
 		return application_status.find({cs:cs});
 	}
 })
+
+Template.admin_backpanel.events({
+	"click .toggle": function(){
+		if (applications.findOne({_id:this._id}).copyright_status) {
+			applications.update({_id:this._id},{$set:{copyright_status:false}});
+		}else{
+			applications.update({_id:this._id},{$set:{copyright_status:true}});
+		}
+	},
+	"click .dropdown-toggle": function(){
+		console.log("event fired");
+	}
+});
 
 Template.to_excel.applicants = function(){
 	return applications.find();
