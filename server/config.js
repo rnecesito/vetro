@@ -8,10 +8,6 @@ Accounts.loginServiceConfiguration.insert({
 	secret: "iJRIeBUiKnuyjDq1JV-br9YT"
 });
 
-	clientId: "202055712427.apps.googleusercontent.com",
-	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
-});
-
 Meteor.methods({
     checkYT: function () {
         this.unblock();
@@ -25,3 +21,4 @@ Meteor.methods({
       	});
     }
 });
+
