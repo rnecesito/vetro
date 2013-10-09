@@ -4,41 +4,41 @@
 			<h3 class="title-header">Administrator Backpanel</h3>
 			<div class="admin-panel">
 				<ul class="nav nav-pills pull-left nav-admin">
-					<li class="active">
-						<a href="#">Applied</a>
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
 					</li>
 					<li>
-						<a href="#">Accepted</a>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
 					</li>
 					<li>
-						<a href="#">Denied</a>
+						<a href="{{pathFor 'denied'}}">Denied</a>
 					</li>
 					<li>
-						<a href="#">Contract Sent</a>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
 					</li>
 					<li>
-						<a href="#">Declined</a>
+						<a href="{{pathFor 'declined'}}">Declined</a>
 					</li>
 					<li>
-						<a href="#">Partner Queue</a>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
 					</li>
 					<li>
-						<a href="#">Video Claiming Sent</a>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
 					</li>
 					<li>
-						<a href="#">AdSense not Approved</a>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
 					</li>
 					<li>
-						<a href="#">Disabled by Youtube</a>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
 					</li>
 					<li>
-						<a href="#">Completed</a>
+						<a href="{{pathFor 'completed'}}">Completed</a>
 					</li>
 					<li>
-						<a href="#">Removed</a>
+						<a href="{{pathFor 'removed'}}">Removed</a>
 					</li>
 					<li>
-						<a href="#">Blacklisted</a>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
 					</li>
 				</ul>
 			</div>
@@ -90,7 +90,6 @@
 						{{#each applicants}}
 						<tr>
 							<td>
-
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
 								  <!-- Modal -->
 								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -129,7 +128,6 @@
 								      </div><!-- /.modal-content -->
 								    </div><!-- /.modal-dialog -->
 								  </div><!-- /.modal -->
-
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -164,13 +162,13 @@
 							</td>
 							<td>
 								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
 										{{status}}
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 									{{#each getNS status}}
-										<li><a tabindex="-1" href="#">{{ns}}</a></li>										
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
 									{{/each}}
 									</ul>
 								</div>
@@ -254,6 +252,2358 @@
 	</div>
 </template>
 
+<template name="applied">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li class="active">
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="accepted">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="denied">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="contract_sent">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="declined">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="partner_queue">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="video_claiming_sent">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="adsense_not_approved">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="disabled_by_youtube">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="removed">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="blacklisted">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="completed">
+	<div class="container">
+		<div class="admin-header">
+			<h3 class="title-header">Administrator Backpanel</h3>
+			<div class="admin-panel">
+				<ul class="nav nav-pills pull-left nav-admin">
+					<li>
+						<a href="{{pathFor 'applied'}}">Applied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'accepted'}}">Accepted</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'denied'}}">Denied</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'contract_sent'}}">Contract Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'declined'}}">Declined</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'partner_queue'}}">Partner Queue</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'video_claiming_sent'}}">Video Claiming Sent</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'adsense_not_approved'}}">AdSense not Approved</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'disabled_by_youtube'}}">Disabled by Youtube</a>
+					</li>
+					<li class="active">
+						<a href="{{pathFor 'completed'}}">Completed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'removed'}}">Removed</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'blacklisted'}}">Blacklisted</a>
+					</li>
+				</ul>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div class="admin-table">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Channel</th>
+							<th>Daily views</th>
+							<th>Subcribers</th>
+							<th>Skype</th>
+							<th>Copyright Status</th>
+							<th>Status</th>
+							<th>Catergory</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+							</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>
+								{{#if copyright_status}}
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{else}}
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+									<div class="toggle-group">
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								{{/if}}
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="{{_id}}">
+										{{status}}
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									{{#each getNS status}}
+										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
+									{{/each}}
+									</ul>
+								</div>
+							</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
 <template name="to_excel">
 	<div id="admintable">
 		<table>
@@ -273,7 +2623,46 @@
 			<tbody>
 				{{#each applicants}}
 				<tr>
-					<td>{{full_name}}</td>
+					<td>
+						<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+					</td>
 					<td>{{email}}</td>
 					<td>{{channel_name}}</td>
 					<td>{{daily_views}}</td>
