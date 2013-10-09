@@ -2,24 +2,15 @@ Meteor.startup(function(){
 	
 });
 
-// Meteor.call("checkYT", function(error, results) {
-// 	//var jsondecoded = json_decode(results.content);
-//     //console.log(results.content); //results.data should be a JSON object
-// });
-Meteor.call("test_fn", function(error, results) {
-	//var jsondecoded = json_decode(results.content);
-    console.log(results); //results.data should be a JSON object
-});
-
 Router.map(function(){
 	this.route('application_form',{path: '/'});
 	this.route('admin_backpanel');
 	this.route('login');
 	this.route('oauthtest');
+	this.route('application_success');
 });
 
 Template.admin_backpanel.rendered = function(){
-	console.log("Rendered");
 	!function ($) {
 		$(document).on('click.bootstrap-toggle', '[data-toggle^=toggle]', function(e) {
 			var $toggle = $(this);
@@ -43,6 +34,12 @@ Template.admin_backpanel.rendered = function(){
 
 }
 
+Template.admin_backpanel.helpers({
+	applicants: function(){
+		return applications.find();
+	}
+})
+
 Template.oauthtest.rendered = function(){
 	// (function() {
 	// 	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -51,6 +48,15 @@ Template.oauthtest.rendered = function(){
 	// })();
 	console.log(Meteor.user());
 }
+
+Template.oauthtest.events({
+	'click .getYouTubeStats': function(e,t){
+		Meteor.call("checkYT", function(error, results) {
+			var jsondecoded = json_decode(results.content);
+		    console.log(jsondecoded); //results.data should be a JSON object
+		});
+	}
+});
 
 Template.application_form.rendered = function(){
 	$(function(){
@@ -65,7 +71,9 @@ Template.application_form.rendered = function(){
 
 Template.application_form.events({
 	'click #gplusconnect': function(e,t){
-		Meteor.loginWithGoogle();
+		Meteor.loginWithGoogle({
+			requestPermissions: ['email', 'profile']
+		});
 	},
 	'click .logoutgplus': function(e,t){
 		Meteor.logout(function(err){
@@ -73,6 +81,31 @@ Template.application_form.events({
 
 			}else{
 
+			}
+		});
+	},
+	'submit': function(e,t){
+		form = {};
+
+		$.each( $("#app_form1").serializeArray(),function(){
+			form[this.name] = this.value;
+		});
+		form['status'] = "Applied";
+		form['copyright_status'] = true;
+
+		applications.insert( form, function(err){
+			if(err){
+				if(err.error === 403){
+
+				}else{
+					alert("Something went wrong. Please try again.");
+					console.log(err);
+				}
+
+			}
+			else{
+				$('#app_form1')[0].reset();
+				Router.go('application_success')
 			}
 		});
 	}
