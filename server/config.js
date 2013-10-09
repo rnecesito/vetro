@@ -4,6 +4,7 @@ Accounts.loginServiceConfiguration.remove({
 
 Accounts.loginServiceConfiguration.insert({
 	service: "google",
-	clientId: "202055712427.apps.googleusercontent.com",
-	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
+	clientId: "1062445461634.apps.googleusercontent.com",
+	secret: "iJRIeBUiKnuyjDq1JV-br9YT"
 });
+

@@ -1,5 +1,52 @@
 <head>
 	<title>Vetro</title>
+	<script src="https://apis.google.com/js/plusone.js"></script>
+	<script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client:plusone.js';
+       var s = document.getElementsByTagName('script')[0]; 
+       	   s.parentNode.insertBefore(po, s);
+     })();
+    </script>
+    <script type="text/javascript">
+    	function signinCallback(authResult) {
+		  if (authResult['access_token']) {
+		    // Update the app to reflect a signed in user
+		    // Hide the sign-in button now that the user is authorized, for example:
+		    document.getElementById('signinButton').setAttribute('style', 'display: none');
+		    console.log('buhi doh: ' + authResult['access_token']);
+		    gapi.client.setApiKey('AIzaSyButw08aViJqhPA2MPeNSpwcsR-9MGG9C8');
+		    //gapi.auth.setToken();
+		    makeApiCall();
+		  } else if (authResult['error']) {
+		    // Update the app to reflect a signed out user
+		    // Possible error values:
+		    //   "user_signed_out" - User is signed-out
+		    //   "access_denied" - User denied access to your app
+		    //   "immediate_failed" - Could not automatically log in the user
+		    console.log('Sign-in state: ' + authResult['error']);
+		    console.log('matay doh');
+		  }
+		}
+
+		function makeApiCall() {
+        	gapi.client.load('plus', 'v3', function() {
+          	var request = gapi.client.plus.people.get({
+            	'userId': 'me'
+          	});
+          	request.execute(function(resp) {
+            	var heading = document.createElement('h4');
+            	var image = document.createElement('img');
+            	image.src = resp.image.url;
+            	heading.appendChild(image);
+            	heading.appendChild(document.createTextNode(resp.displayName));
+
+            	document.getElementById('content').appendChild(heading);
+          	});
+        });
+      }
+    </script>
 </head>
 
 <body>
