@@ -19,19 +19,21 @@
 					<div class="col-lg-4">
 						<div class="col-lg-6">
 					    	<label>Full Legal Name</label>
-					    	<label>Youtube Channel</label>
+					    	<label>Email</label><br>
 					    	<label>Daily Views</label>
 					    	<label>Total Upload views</label>
 					    	<label>Total Subscribers</label>
-					    	<label>Age</label><br>
-					    	<label>Country</label>
+					    	<label class="form-control-left">Age</label><br>
+					    	<label class="form-control-left">Country</label><br>
+					    	<label class="form-control-left">Youtube Channel</label>
+					    	
 					    </div>	
-					    <div class="col-lg-3">
+					    <div class="col-lg-5">
 					    	<div class="row">
 					     		<span>John Doe</span>
 					     	</div>
 					     	<div class="row align-style">
-					     		<span>JohnyOreoTV</span>
+					     		<span>Pro@gmail.com</span>
 					     	</div>
 					     	<div class="row align-style">
 					     		<span>495</span>
@@ -43,10 +45,13 @@
 					     		<span>30, 598</span>
 					     	</div>
 					     	<div class="row align-style">
-					     		<span>21</span>
+					     		<input type="age" placeholder="Age" class="form-control">
 					     	</div>
 					     	<div class="row align-style">
-					     		<span>Philippines</span>
+					     		<input type="country" placeholder="Country" class="form-control">
+					     	</div>
+					     	<div class="row align-style">
+					     		<input type="channelname" placeholder="Channel Name" class="form-control">
 					     	</div>
 					    </div>
 					</div>
@@ -88,8 +93,8 @@
 								</span>
 							</span>
 					    	</div>
-						    <div class="col-lg-8">
-						    	<span class="btn btn-file file-style"><input type="file" /></span>
+						    <div class="col-lg-8 form-style">
+						    	<input type="url" placeholder="URL link" class="form-control cr-status">
 						    </div>
 						    <div class="col-lg-4">
 				    			<label>Music Info*</label>
@@ -106,6 +111,99 @@
 						</div>
 				    </div>  
 			</form>
+=======
+				<table>
+					<tr>
+						<!-- <input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"> -->
+						<span id="signinButton">
+		  					<span
+		    					class="g-signin"
+							    data-callback="signinCallback"
+							    data-clientid="202055712427.apps.googleusercontent.com"
+							    data-cookiepolicy="single_host_origin"
+							    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+							    data-scope="https://www.googleapis.com/auth/plus.me"
+							    data-scope="https://www.googleapis.com/auth/plus.login"
+							    >
+		  					</span>
+						</span>
+					</tr>				
+					{{#unless currentUser}}
+					<tr><input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"></tr>
+
+					{{else}}
+					<tr><input type="button" class="btn btn-danger logoutgplus" value="Logout from Google+"></tr>
+					{{/unless}}
+					<form id="app_form1">
+						<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
+						<tr>
+							<td><b>Full Legal Name</b></td>
+							<td><input name="full_name" style="width:210px;" value="{{currentUser.profile.name}}"></td>
+							<td><b>Category *</b></td>
+							<td>
+								<select style="width:210px;" name="category">
+									<option selected>Gaming</option>
+									<option>Designs</option>
+									<option>Video Blogs</option>
+									<option>Music</option>
+									<option>Other</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Youtube Channel Name</b></td>
+							<td><input name="channel_name" style="width:210px;"></td>
+							<td><b>Skype *</b></td>
+							<td><input name="skype_email" style="width:210px;"></td>
+						</tr>
+						<tr>
+							<td><b>Daily Views</b></td>
+							<td><input name="daily_views" style="width:210px;"></td>
+							<td><b>Paypal Email *</b></td>
+							<td><input name="paypal_email" style="width:210px;"></td>
+						</tr>
+						<tr>
+							<td><b>Total Upload views</b></td>
+							<td><input name="total_views" style="width:210px;"></td>
+							<td><b>Copyright status *</b>
+								<div class="copyright-file">
+									<span class="glyphicon glyphicon-question-sign dropt" style="">
+										<span style="width:214px;">
+											<dt> 1. Go to youtube settings. </dt>
+											<dt> 2. Click view additional features. </dt>
+											<dt> 3. Take a clear screenshot of your account status. </dt>
+											<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
+											<dt> 5. Enter you screenshot URL </dt>
+										</span>
+									</span>
+								</div>
+							</td>
+							<td><input style="width:210px;" name="copyright_status_link"></td>
+						</tr>
+						<tr>
+							<td><b>Total Subscribers</b></td>
+							<td><input name="subscribers" style="width:210px;"></td>
+							<td><b>Music info *</b></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><div class="td-style"><b>Age</b></div></td>
+							<td><div class="td-style"><input name="age" style="width:210px;"></div></td>
+							<td colspan="2">Do you have any music on your channel you don't own? If so please state if you have permission.</td>
+						</tr>
+						<tr>
+							<td><div class="td-style2"><b>Country</b></div></td>
+							<td><div class="td-style2"><input name="country" style="width:210px;"></div></td>
+							<td colspan="2"><textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea></td>
+						</tr>
+						<tr>
+							<td colspan="3"></td>
+							<td><button type="submit" class="btn btn-primary submitbutton">Submit</button></td>
+						</tr>
+					</form>
+				</table>
+			</div>
+>>>>>>> a9a012188f39fd49ed41268430127f5bba4ec5b6
 		</div>
 	</div>
 </template>

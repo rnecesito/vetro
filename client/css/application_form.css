@@ -113,7 +113,7 @@ label {
 	margin-top: -50px;
 }
 
-.copyright-file {
+.copyright-file, .cr-status {
 	display: inline-block;
 	margin-left: 0;
 }
@@ -205,13 +205,15 @@ span.dropt:hover span {
 	margin-bottom: 10px;
 }
 
-.file-style {
-	margin-top: -45px;
-	margin-left: -13px;
+.file-style, .cr-status {
+	margin-top: -38px;
 }
 
 .align-style {
 	margin-top: 5px;
 }
 
+.form-control-left {
+	margin-top: 10px;
+}
 /* End of Fro's CSS*/
