@@ -71,7 +71,7 @@
 						  </div>
 						</div>
 						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			<div id="admintable" class="admin-table">
+			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
@@ -248,5 +248,81 @@
 					</ul>
 			</div>
 		</div>
+	</div>
+	<div class="hidden">
+		{{>to_excel}}
+	</div>
+</template>
+
+<template name="to_excel">
+	<div id="admintable">
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Channel</th>
+					<th>Daily views</th>
+					<th>Subcribers</th>
+					<th>Skype</th>
+					<th>Copyright Status</th>
+					<th>Status</th>
+					<th>Catergory</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each applicants}}
+				<tr>
+					<td>{{full_name}}</td>
+					<td>{{email}}</td>
+					<td>{{channel_name}}</td>
+					<td>{{daily_views}}</td>
+					<td>{{subscribers}}</td>
+					<td>{{skype_email}}</td>
+					<td>
+						{{#if copyright_status}}
+							In Good Standing
+						{{else}}
+							Not In Good Standing
+						{{/if}}
+					</td>
+					<td>{{status}}</td>
+					<td>{{category}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td>Juston Alcantara</td>
+					<td>juston29@yahoo.com</td>
+					<td>Juston</td>
+					<td>100000</td>
+					<td>10000</td>
+					<td>juston.skype</td>
+					<td>Not in Good Standing</td>
+					<td>Applied</td>
+					<td>Technology</td>
+				</tr>
+				<tr>
+					<td>Angelica Sy Salazar</td>
+					<td>wicxednez@gmail.com</td>
+					<td>Kinesyx</td>
+					<td>1000000</td>
+					<td>10000</td>
+					<td>angelicism.skype</td>
+					<td>Applied</td>
+					<td>Entertainment</td>
+				</tr>
+				<tr>
+					<td>Julia Inez Muana</td>
+					<td>juli_izheree@yahoo.com</td>
+					<td>Backyard Project Studio</td>
+					<td>10000000</td>
+					<td>100000</td>
+					<td>jimuana.skype</td>
+					<td>Not in Good Standing</td>
+					<td>Applied</td>
+					<td>Music</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </template>

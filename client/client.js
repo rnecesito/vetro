@@ -43,6 +43,10 @@ Template.admin_backpanel.helpers({
 	}
 })
 
+Template.to_excel.applicants = function(){
+	return applications.find();
+}
+
 Template.oauthtest.rendered = function(){
 	// (function() {
 	// 	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
