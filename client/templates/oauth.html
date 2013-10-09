@@ -2,6 +2,9 @@
 	{{loginButtons}}
 
 	{{#if currentUser}}
-		{{currentUser.profile.login}}
+		{{currentUser.services.google.email}}
 	{{/if}}
+	<div>
+		<img class="img-rounded" style="height=40%;width=40%" src="gplus.png">
+	</div>
 </template>
