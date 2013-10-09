@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "paginator": {}
     },
     "packages": {
       "iron-router": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v0.3.5",
         "commit": "47996f67f3987c9f82117394effcbe1586a4fe29"
+      },
+      "paginator": {
+        "git": "https://github.com/TimHeckel/meteor-paginator.git",
+        "tag": "v0.0.8",
+        "commit": "7fc0877bbe310316536641e61ce4b2d5c071d44c"
       }
     }
   }

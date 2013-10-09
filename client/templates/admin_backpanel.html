@@ -1,4 +1,5 @@
 <template name="admin_backpanel">
+	{{>admin_navbar}}
 	<div class="container">
 		<div class="admin-header">
 			<h3 class="title-header">Administrator Backpanel</h3>
@@ -91,7 +92,7 @@
 						<tr>
 							<td>{{full_name}}</td>
 							<td>{{email}}</td>
-							<td>{{channel_name}}</td>
+							<td><a href="http://statfire.com/channels/{{channel_name}}" target="blank">{{channel_name}}</a></td>
 							<td>{{daily_views}}</td>
 							<td>{{subscribers}}</td>
 							<td>{{skype_email}}</td>
@@ -116,7 +117,7 @@
 								</div>
 								{{/if}}
 								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
+								<a href="{{copyright_status_link}}" target="blank"><span class="glyphicon glyphicon-picture btn btn-default btn-sm btn-glyph"></span></a>
 							</td>
 							<td>
 								<div class="btn-group">
@@ -134,105 +135,6 @@
 							<td>{{category}}</td>
 						</tr>
 						{{/each}}
-						<tr>
-							<td>Juston Alcantara</td>
-							<td>juston29@yahoo.com</td>
-							<td>Juston</td>
-							<td>100000</td>
-							<td>10000</td>
-							<td>juston.skype</td>
-							<td>
-								<div id="{{_id}}" class="toggle-admin toggle btn btn-default btn-primary" data-toggle="toggle">
-									<input type="checkbox" checked>
-									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
-									</div>
-								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
-							</td>
-							<td>
-								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-										Applied
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										<li><a tabindex="-1" href="#">Accepted</a></li>
-										<li class="denied" ><a tabindex="-1" href="#">Denied</a></li>
-									</ul>
-								</div>
-							</td>
-							<td>Technology</td>
-						</tr>
-						<tr>
-							<td>Angelica Sy Salazar</td>
-							<td>wicxednez@gmail.com</td>
-							<td>Kinesyx</td>
-							<td>1000000</td>
-							<td>10000</td>
-							<td>angelicism.skype</td>
-							<td>               
-								<div id="{{_id}}" class="toggle-admin toggle btn btn-default btn-primary" data-toggle="toggle">
-									<input type="checkbox" checked>
-									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
-									</div>
-								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
-							</td>
-							<td>
-								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-										Applied
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										<li><a tabindex="-1" href="#">Accepted</a></li>
-										<li class="denied"><a tabindex="-1" href="#">Denied</a></li>
-									</ul>
-								</div>
-							</td>
-							<td>Entertainment</td>
-						</tr>
-						<tr>
-							<td>Julia Inez Muana</td>
-							<td>juli_izheree@yahoo.com</td>
-							<td>Backyard Project Studio</td>
-							<td>10000000</td>
-							<td>100000</td>
-							<td>jimuana.skype</td>
-							<td>                
-								<div id="{{_id}}" class="toggle-admin toggle btn btn-default btn-primary" data-toggle="toggle">
-									<input type="checkbox" checked>
-									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
-									</div>
-								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
-							</td>
-							<td>
-								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-										Applied
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										<li><a tabindex="-1" href="#">Accepted</a></li>
-										<li class="denied"><a tabindex="-1" href="#">Denied</a></li>
-									</ul>
-								</div>
-							</td>
-							<td>Music</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -2176,5 +2078,26 @@
 				{{/each}}
 			</tbody>
 		</table>
+	</div>
+</template>
+
+<template name="admin_navbar">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href=""></a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="nav-li first-leaf" id="home-container"><a href="{{pathFor 'application_form'}}">Apply</a></li>
+				<li class="active nav-li" id="about-container"><a href="{{pathFor 'admin_backpanel'}}">Admin</a></li>
+				<!-- <li class="nav-li" id="contact-container"><a href="{{pathFor 'login'}}">Login</a></li> -->
+				<li class="nav-li last-leaf" id="contact-container"><a href="{{pathFor 'oauthtest'}}">OAuth Test</a></li>
+			</ul>
+		</div><!--/.navbar-collapse -->
 	</div>
 </template>

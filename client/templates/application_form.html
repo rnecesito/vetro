@@ -10,33 +10,29 @@
 				<li>Must have no copyright strikes.</li>
 				<li>Channel over 1 month old.</li>
 				<li>If you have music you need to provide proof you have permission to use it.</li>
-				<table>
-					<tr>
-						<!-- <input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"> -->
-						<span id="signinButton">
-		  					<span
-		    					class="g-signin"
-							    data-callback="signinCallback"
-							    data-clientid="202055712427.apps.googleusercontent.com"
-							    data-cookiepolicy="single_host_origin"
-							    data-requestvisibleactions="http://schemas.google.com/AddActivity"
-							    data-scope="https://www.googleapis.com/auth/plus.me"
-							    data-scope="https://www.googleapis.com/auth/plus.login"
-							    >
-		  					</span>
-						</span>
-					</tr>				
-					{{#unless currentUser}}
-					<tr><input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"></tr>
-
-					{{else}}
-					<tr><input type="button" class="btn btn-danger logoutgplus" value="Logout from Google+"></tr>
-					{{/unless}}
+				<table>				
 					<form id="app_form1">
 						<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
+						<input type="hidden" name="full_name" value="{{currentUser.profile.name}}">
+						<input type="hidden" name="daily_views" id="yt_daily_views" value="">
+						<input type="hidden" name="total_views" id="yt_total_views" value="">
+						<input type="hidden" name="subscribers" id="yt_subscribers" value="">
+						<tr>
+							<td><b>Email</b></td>
+							<td><b>{{currentUser.services.google.email}}</b></td>
+							<td>
+								<b>YouTube Channel Name *</b>
+								<button class="btn btn-sm getYouTubeData" type="button">
+									Retrieve Stats [REQUIRED]
+								</button>
+							</td>
+							<td>
+								<input name="channel_name" style="width:210px;" id="yt_channel_name">								
+							</td>
+						</tr>						
 						<tr>
 							<td><b>Full Legal Name</b></td>
-							<td><input name="full_name" style="width:210px;" value="{{currentUser.profile.name}}"></td>
+							<td><b>{{currentUser.profile.name}}</b></td>
 							<td><b>Category *</b></td>
 							<td>
 								<select style="width:210px;" name="category">
@@ -49,20 +45,19 @@
 							</td>
 						</tr>
 						<tr>
-							<td><b>Youtube Channel Name</b></td>
-							<td><input name="channel_name" style="width:210px;"></td>
+
 							<td><b>Skype *</b></td>
 							<td><input name="skype_email" style="width:210px;"></td>
 						</tr>
 						<tr>
 							<td><b>Daily Views</b></td>
-							<td><input name="daily_views" style="width:210px;"></td>
+							<td id="yt_daily_views2"></td>
 							<td><b>Paypal Email *</b></td>
 							<td><input name="paypal_email" style="width:210px;"></td>
 						</tr>
 						<tr>
 							<td><b>Total Upload views</b></td>
-							<td><input name="total_views" style="width:210px;"></td>
+							<td id="yt_total_views2"></td>
 							<td><b>Copyright status *</b>
 								<div class="copyright-file">
 									<span class="glyphicon glyphicon-question-sign dropt" style="">
@@ -80,7 +75,7 @@
 						</tr>
 						<tr>
 							<td><b>Total Subscribers</b></td>
-							<td><input name="subscribers" style="width:210px;"></td>
+							<td id="yt_subscribers2"></td>
 							<td><b>Music info *</b></td>
 							<td></td>
 						</tr>

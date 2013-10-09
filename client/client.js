@@ -1,6 +1,11 @@
 Meteor.startup(function(){
 	Session.setDefault('status_filter', 'Applied');
 	Session.setDefault('dd_id', null);
+	if(!Meteor.user()){
+		Meteor.loginWithGoogle({
+			requestPermissions: ['email', 'profile']
+		});
+	}
 });
 
 Router.map(function(){
@@ -418,6 +423,24 @@ Template.application_form.events({
 			}else{
 
 			}
+		});
+	},
+	'click .getYouTubeData':function(e,t){
+		var channel = $('#yt_channel_name').val();
+		Meteor.call("checkYT", channel, function(error, results) {
+			var jsondecoded = json_decode(results.content);		    
+		    if (jsondecoded.items.length === 0) {
+		    	alert("Invalid YouTube channel name.");
+		    }else{
+		    	console.log(jsondecoded); //results.data should be a JSON object
+		    	console.log(jsondecoded.items[0].kind);
+		    	$('#yt_daily_views').val(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_daily_views2').html(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_total_views').val(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_total_views2').html(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
+		    	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
+		    }
 		});
 	},
 	'submit': function(e,t){
