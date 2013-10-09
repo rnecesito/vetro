@@ -70,7 +70,7 @@
 								</div>
 						  </div>
 						</div>
-						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button><a href="1251354216241621.txt" download="your-foo.txt" class="aaa">Download Your Foo</a>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -89,7 +89,48 @@
 					<tbody>
 						{{#each applicants}}
 						<tr>
-							<td>{{full_name}}</td>
+							<td>
+
+								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
+
+							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
 							<td>{{daily_views}}</td>
@@ -97,17 +138,20 @@
 							<td>{{skype_email}}</td>
 							<td>
 								{{#if copyright_status}}
-								<div id="" class="toggle btn btn-default btn-primary toggle-admin" data-toggle="toggle">
-									<input type="checkbox" checked>
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+
 									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
+										<label class="toggle-on btn btn-default btn-primary toggle-admin ">In Good Standing</label>
+										<label class="toggle-off btn btn-default active toggle-admin ">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default toggle-admin "></span>     
 									</div>
 								</div>
 								{{else}}
-								<div id="" class="toggle btn btn-default active off toggle-admin" data-toggle="toggle">
-									<input type="checkbox" checked>
+
+								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
+									<input type="checkbox" checked id="{{_id}}">
+
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
 										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
@@ -137,8 +181,7 @@
 						<tr>
 							<td>
 
-								<a data-toggle="modal" id="info-modal" href="#myModal">Juston Paul Alcantara</a>
-
+								<a data-toggle="modal" id="info-modal" href="#myModal">Julia Inez Muana</a>
 								  <!-- Modal -->
 								  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								    <div class="modal-dialog">
@@ -148,7 +191,7 @@
 								          <h4 class="modal-title">Information</h4>
 								        </div>
 								        <div class="modal-body">
-								          ...
+								          Name: Julia Inez Muana
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -157,86 +200,20 @@
 								    </div><!-- /.modal-dialog -->
 								  </div><!-- /.modal -->
 
-
 							</td>
-							<td>juston29@yahoo.com</td>
-							<td>Juston</td>
-							<td>100000</td>
-							<td>10000</td>
-							<td>juston.skype</td>
-							<td>
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary toggle-admin" data-toggle="toggle">
-									<input type="checkbox" checked>
-									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
-									</div>
-								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
-							</td>
-							<td>
-								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-										Applied
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										<li><a tabindex="-1" href="#">Accepted</a></li>
-										<li class="denied" ><a tabindex="-1" href="#">Denied</a></li>
-									</ul>
-								</div>
-							</td>
-							<td>Technology</td>
-						</tr>
-						<tr>
-							<td>Angelica Sy Salazar</td>
-							<td>wicxednez@gmail.com</td>
-							<td>Kinesyx</td>
-							<td>1000000</td>
-							<td>10000</td>
-							<td>angelicism.skype</td>
-							<td>               
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
-									<input type="checkbox" checked>
-									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
-									</div>
-								</div>
-								<span class="glyphicon glyphicon-question-sign"></span>
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
-							</td>
-							<td>
-								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-										Applied
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										<li><a tabindex="-1" href="#">Accepted</a></li>
-										<li class="denied"><a tabindex="-1" href="#">Denied</a></li>
-									</ul>
-								</div>
-							</td>
-							<td>Entertainment</td>
-						</tr>
-						<tr>
-							<td>Julia Inez Muana</td>
 							<td>juli_izheree@yahoo.com</td>
 							<td>Backyard Project Studio</td>
 							<td>10000000</td>
 							<td>100000</td>
 							<td>jimuana.skype</td>
-							<td>                
-								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+							<td>            
+
+								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
 									<input type="checkbox" checked>
 									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
+										<label class="toggle-on btn btn-default btn-primary toggle-admin ">In Good Standing</label>
+										<label class="toggle-off btn btn-default active toggle-admin ">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default toggle-admin "></span>     
 									</div>
 								</div>
 								<span class="glyphicon glyphicon-question-sign"></span>
@@ -313,38 +290,6 @@
 					<td>{{category}}</td>
 				</tr>
 				{{/each}}
-				<tr>
-					<td>Juston Alcantara</td>
-					<td>juston29@yahoo.com</td>
-					<td>Juston</td>
-					<td>100000</td>
-					<td>10000</td>
-					<td>juston.skype</td>
-					<td>Not in Good Standing</td>
-					<td>Applied</td>
-					<td>Technology</td>
-				</tr>
-				<tr>
-					<td>Angelica Sy Salazar</td>
-					<td>wicxednez@gmail.com</td>
-					<td>Kinesyx</td>
-					<td>1000000</td>
-					<td>10000</td>
-					<td>angelicism.skype</td>
-					<td>Applied</td>
-					<td>Entertainment</td>
-				</tr>
-				<tr>
-					<td>Julia Inez Muana</td>
-					<td>juli_izheree@yahoo.com</td>
-					<td>Backyard Project Studio</td>
-					<td>10000000</td>
-					<td>100000</td>
-					<td>jimuana.skype</td>
-					<td>Not in Good Standing</td>
-					<td>Applied</td>
-					<td>Music</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
