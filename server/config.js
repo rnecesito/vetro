@@ -4,28 +4,41 @@ Accounts.loginServiceConfiguration.remove({
 
 Accounts.loginServiceConfiguration.insert({
 	service: "google",
-	clientId: "1062445461634.apps.googleusercontent.com",
-	secret: "iJRIeBUiKnuyjDq1JV-br9YT"
+	clientId: "202055712427.apps.googleusercontent.com",
+	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
 });
 
 Meteor.methods({
-    checkYT: function () {
-        this.unblock();
-        return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&forUsername=DevDiaryOnanyTV&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY");
-    },
-    test_fn: function() {
-    	var url = "https://www.googleapis.com/youtube/v3/channels";
-      	var params = {
-        	access_token: Meteor.user().services.google.accessToken,
-	        part: "snippet",
-	        mine: "true"
-      	};
-      	return Meteor.http.call("GET", url, {params: params});
-    	// return Meteor.http.get(url, {params: params}, function (err, result) {
-	     //    console.log(result.statusCode, result.data);
-	     //    var retdata =  result.data;
-    		// Session.set("myItems", retdata.items);
-      	// });
-    }
+	checkYT: function () {
+		this.unblock();
+		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&key=AIzaSyBm3SF1e_SXkCPpQBBoPI37HrCfnuSfaRw");
+	},
+	test_fn: function() {
+		var url = "https://www.googleapis.com/youtube/v3/channels";
+		var params = {
+			access_token: Meteor.user().services.google.accessToken,
+			part: "snippet",
+			mine: "true"
+		};
+		return Meteor.http.get(url, {params: params}, function (err, result) {
+			console.log(result.statusCode, result.data);
+			var retdata =  result.data;
+			Session.set("myItems", retdata.items);
+		});
+	}
 });
 
+Meteor.startup(function(){
+	application_status.remove({});
+	application_status.insert({cs:"Applied", ns: ["Accepted","Denied"], color: "blue"});
+	application_status.insert({cs:"Accepted", ns: ["Contract Sent"], color: "green"});
+	application_status.insert({cs:"Denied" , ns: ["Applied","Removed","Blacklisted"], color: "red"});
+	application_status.insert({cs: "Contract Sent", ns: ["Declined","Partner Queue"], color: "grey"});
+	application_status.insert({cs: "Declined", ns: ["Applied"], color: "grey"});
+	application_status.insert({cs: "Partner Queue", ns: ["Video Claiming Sent"], color: "grey"});
+	application_status.insert({cs: "Video Claiming Sent", ns: ["AdSense Not Approved","Disabled by YouTube", "Completed"], color: "grey"});
+	application_status.insert({cs: "AdSense Not Approved", ns: ["Applied","Denied"], color: "grey"});
+	application_status.insert({cs: "Disabled by YouTube", ns: ["Applied","Denied"], color: "grey"});
+	application_status.insert({cs: "Removed", color: "grey"});
+	application_status.insert({cs: "Blacklisted", color: "grey"});
+})

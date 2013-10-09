@@ -26,13 +26,18 @@
 		  					</span>
 						</span>
 					</tr>
+				<table>					
+					{{#unless currentUser}}
+					<tr><input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"></tr>
+
 					{{else}}
 					<tr><input type="button" class="btn btn-danger logoutgplus" value="Logout from Google+"></tr>
 					{{/unless}}
 					<form id="app_form1">
+						<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
 						<tr>
 							<td><b>Full Legal Name</b></td>
-							<td><input name="full_name" style="width:210px;"></td>
+							<td><input name="full_name" style="width:210px;" value="{{currentUser.profile.name}}"></td>
 							<td><b>Category *</b></td>
 							<td>
 								<select style="width:210px;" name="category">
@@ -72,7 +77,7 @@
 									</span>
 								</div>
 							</td>
-							<td><input style="width:210px;" name="copyright_status"></td>
+							<td><input style="width:210px;" name="copyright_status_link"></td>
 						</tr>
 						<tr>
 							<td><b>Total Subscribers</b></td>

@@ -70,7 +70,8 @@
 								</div>
 						  </div>
 						</div>
-			<div class="admin-table">
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
+			<div id="admintable" class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
@@ -86,6 +87,35 @@
 						</tr>
 					</thead>
 					<tbody>
+						{{#each applicants}}
+						<tr>
+							<td>{{full_name}}</td>
+							<td>{{email}}</td>
+							<td>{{channel_name}}</td>
+							<td>{{daily_views}}</td>
+							<td>{{subscribers}}</td>
+							<td>{{skype_email}}</td>
+							<td>{{copyright_status}}
+								<div id="toggle-admin" class="toggle btn btn-default btn-primary" data-toggle="toggle">
+									<input type="checkbox" checked>
+									<div class="toggle-group">
+										{{#if copyright_status}}
+										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
+										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
+										{{else}}
+										<label class="toggle-on btn btn-default btn-primary active">In Good Standing</label>
+										<label class="toggle-off btn btn-default ">Not in Good Standing</label>
+										{{/if}}
+										<span class="toggle-handle btn btn-default"></span>     
+									</div>
+								</div>
+								<span class="glyphicon glyphicon-question-sign"></span>
+								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span>		</button>
+							</td>
+							<td>{{status}}</td>
+							<td>{{category}}</td>
+						</tr>
+						{{/each}}
 						<tr>
 							<td>Juston Alcantara</td>
 							<td>juston29@yahoo.com</td>
@@ -187,6 +217,7 @@
 						</tr>
 					</tbody>
 				</table>
+			</div>
 				<div class="div-pagination">
 					<ul class="pagination">
 						 <li><a href="#">&laquo;</a></li>
@@ -197,7 +228,6 @@
 						 <li><a href="#">5</a></li>
 						 <li><a href="#">&raquo;</a></li>
 					</ul>
-				</div>
 			</div>
 		</div>
 	</div>
