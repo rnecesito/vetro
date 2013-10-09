@@ -83,9 +83,6 @@ Template.application_form.helpers({
 	}
 })
 
-
-
-
 function json_decode (str_json) {	
 	var json = this.window.JSON;
 	if (typeof json === 'object' && typeof json.parse === 'function') {
@@ -126,3 +123,4 @@ function json_decode (str_json) {
 		this.php_js.last_error_json = 4; // usable by json_last_error()
 		return null;
 }
+
