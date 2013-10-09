@@ -2,9 +2,13 @@ Meteor.startup(function(){
 	
 });
 
-Meteor.call("checkYT", function(error, results) {
+// Meteor.call("checkYT", function(error, results) {
+// 	//var jsondecoded = json_decode(results.content);
+//     //console.log(results.content); //results.data should be a JSON object
+// });
+Meteor.call("test_fn", function(error, results) {
 	//var jsondecoded = json_decode(results.content);
-    //console.log(results.content); //results.data should be a JSON object
+    console.log(results); //results.data should be a JSON object
 });
 
 Router.map(function(){
@@ -56,18 +60,6 @@ Template.application_form.rendered = function(){
 Template.application_form.events({
 	'click #gplusconnect': function(e,t){
 		Meteor.loginWithGoogle();
-		if (Meteor.user() && !Meteor.loggingIn()) {
-		    var url = "https://www.googleapis.com/youtube/v3/channels";
-	      	var params = {
-	        	access_token: Meteor.user().services.google.accessToken,
-		        part: "snippet",
-		        mine: "true"
-	      	};
-      		Meteor.call("test_fn", params, function(error, results) {
-				//var jsondecoded = json_decode(results.content);
-			    console.log(results.content); //results.data should be a JSON object
-			});
-	    }
 	},
 	'click .logoutgplus': function(e,t){
 		Meteor.logout(function(err){

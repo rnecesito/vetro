@@ -10,77 +10,77 @@
 				<li>Must have no copyright strikes.</li>
 				<li>Channel over 1 month old.</li>
 				<li>If you have music you need to provide proof you have permission to use it.</li>
-				<table>
-					{{#unless currentUser}}
+				<table>					{{#unless currentUser}}
 					<tr><input type="image" style="height:50px;" class="button" id="gplusconnect" src="gplus.png"></tr>
 					{{else}}
 					<tr><input type="button" class="btn btn-danger logoutgplus" value="Logout from Google+"></tr>
 					{{/unless}}
-					<tr>
-						<td><b>Full Legal Name</b></td>
-						<td><input name="full_name" style="width:190px;" value="{{youtubeUser.profile.name}}"></td>
-						<td><b>Category *</b></td>
-						<td>
-							<select style="width:210px;" name="category">
-								<option selected>Gaming</option>
-								<option>Designs</option>
-								<option>Video Blogs</option>
-								<option>Music</option>
-								<option>Other</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td><b>Youtube Channel Name</b></td>
-						<td><input name="channel_name" style="width:210px;"></td>
-						<td><b>Skype *</b></td>
-						<td><input name="skype_email" style="width:210px;"></td>
-					</tr>
-					<tr>
-						<td><b>Daily Views</b></td>
-						<td><input name="daily_views" style="width:210px;"></td></td>
-						<td><b>Paypal Email *</b></td>
-						<td><input name="paypal_email" style="width:210px;"></td>
-					</tr>
-					<tr>
-						<td><b>Total Upload views</b></td>
-						<td><input name="total_views" style="width:210px;"></td>
-						<td><b>Copyright status *</b>
-						<div class="copyright-file">
-							<span class="glyphicon glyphicon-question-sign dropt" style="">
-								<span style="width:214px;">
-									<dt> 1. Go to youtube settings. </dt>
-									<dt> 2. Click view additional features. </dt>
-									<dt> 3. Take a clear screenshot of your account status. </dt>
-									<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
-									<dt> 5. Enter you screenshot URL </dt>
-								</span>
-							</span>
-						</div>
-						<td><input style="width:210px;" name="copyright_status"></td>
-					</tr>
-					<tr>
-						<td><b>Total Subscribers</b></td>
-						<td><input name="subscribers" style="width:210px;"></td></td>
-						<td><b>Music info *</b></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><div class="td-style"><b>Age</b></div></td>
-						<td><div class="td-style"><input name="age" style="width:210px;"></div></td>
-						<td colspan="2">Do you have any music on your channel you don't own? If so please state if you have permission.</td>
-					</tr>
-					<tr>
-						<td><div class="td-style2"><b>Country</b></div></td>
-						<td><div class="td-style2"><input name="country" style="width:210px;"></td></div></td>
-						<td colspan="2"><textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><button type="submit" class="btn btn-primary submitbutton">Submit</button></td>
-					</tr>
+					<form id="app_form1">
+						<tr>
+							<td><b>Full Legal Name</b></td>
+							<td><input name="full_name" style="width:210px;"></td>
+							<td><b>Category *</b></td>
+							<td>
+								<select style="width:210px;" name="category">
+									<option selected>Gaming</option>
+									<option>Designs</option>
+									<option>Video Blogs</option>
+									<option>Music</option>
+									<option>Other</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Youtube Channel Name</b></td>
+							<td><input name="channel_name" style="width:210px;"></td>
+							<td><b>Skype *</b></td>
+							<td><input name="skype_email" style="width:210px;"></td>
+						</tr>
+						<tr>
+							<td><b>Daily Views</b></td>
+							<td><input name="daily_views" style="width:210px;"></td>
+							<td><b>Paypal Email *</b></td>
+							<td><input name="paypal_email" style="width:210px;"></td>
+						</tr>
+						<tr>
+							<td><b>Total Upload views</b></td>
+							<td><input name="total_views" style="width:210px;"></td>
+							<td><b>Copyright status *</b>
+								<div class="copyright-file">
+									<span class="glyphicon glyphicon-question-sign dropt" style="">
+										<span style="width:214px;">
+											<dt> 1. Go to youtube settings. </dt>
+											<dt> 2. Click view additional features. </dt>
+											<dt> 3. Take a clear screenshot of your account status. </dt>
+											<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
+											<dt> 5. Enter you screenshot URL </dt>
+										</span>
+									</span>
+								</div>
+							</td>
+							<td><input style="width:210px;" name="copyright_status"></td>
+						</tr>
+						<tr>
+							<td><b>Total Subscribers</b></td>
+							<td><input name="subscribers" style="width:210px;"></td>
+							<td><b>Music info *</b></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><div class="td-style"><b>Age</b></div></td>
+							<td><div class="td-style"><input name="age" style="width:210px;"></div></td>
+							<td colspan="2">Do you have any music on your channel you don't own? If so please state if you have permission.</td>
+						</tr>
+						<tr>
+							<td><div class="td-style2"><b>Country</b></div></td>
+							<td><div class="td-style2"><input name="country" style="width:210px;"></div></td>
+							<td colspan="2"><textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea></td>
+						</tr>
+						<tr>
+							<td colspan="3"></td>
+							<td><button type="submit" class="btn btn-primary submitbutton">Submit</button></td>
+						</tr>
+					</form>
 				</table>
 			</div>
 		</div>
