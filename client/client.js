@@ -40,8 +40,18 @@ Template.admin_backpanel.rendered = function(){
 		});
 	}(window.jQuery);
 
+
 	$("#btnExport").click(function(e) {
-    window.open('data:application/vnd.ms-excel,' + $('#admintable').html());
+      var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
+ 	  var downloadLink = document.createElement("a");
+		downloadLink.href = uri;
+		downloadLink.download = "backpanel-data.xls";
+
+		document.body.appendChild(downloadLink);
+		downloadLink.click();
+		document.body.removeChild(downloadLink);
+
+     myWindow.focus();
     e.preventDefault();
 });
 
