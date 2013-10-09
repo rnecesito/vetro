@@ -70,7 +70,7 @@ label {
 
 .vetro-header {
 	padding: 1px 35px;
-	background: #0b61a4;
+	/*background: #0b61a4;*/
 }
 
 .vetro-header h1 {
@@ -96,12 +96,12 @@ label {
 }
 
 .submitbutton {
-	float: right
+	margin-bottom: 5px;
 }
 
 .musicinfo-box {
 	height: 100px;
-	width: 460px;
+	width: 595px;
 }
 
 .td-style {
@@ -195,6 +195,23 @@ span.dropt:hover span {
 	margin: 7px 0 0 0;
 	background: #ffffff;
 	z-index:6;
+}
+
+.form {
+	margin-top: 20px;
+}
+
+.form-style {
+	margin-bottom: 10px;
+}
+
+.file-style {
+	margin-top: -45px;
+	margin-left: -13px;
+}
+
+.align-style {
+	margin-top: 5px;
 }
 
 /* End of Fro's CSS*/
