@@ -19,6 +19,18 @@
 	border-bottom: 1px solid #AAA;
 }
 
+.modal-body {
+	text-align: left;
+}
+
+#info-modal {
+	color: rgba(25, 90, 125, 0.9)
+}
+
+#info-modal:hover {
+	color: rgba(30, 50, 125, 0.95);
+}
+
 #btnExport {
 float: right;
 margin: 10px 5px;
@@ -182,10 +194,10 @@ width: 125px;
 	top: 0;
 	bottom: 0;
 	left: 0;
-	transition: left 0.35s;
-	-webkit-transition: left 0.35s;
-	-moz-user-select: none;
-	-webkit-user-select: none;
+	transition: left 0.35s !important;
+	-webkit-transition: left 0.35s !important;
+	-moz-user-select: none !important;
+	-webkit-user-select: none !important;
 }
 .toggle.off .toggle-group {
 	left: -100%;

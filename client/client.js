@@ -1,11 +1,6 @@
 Meteor.startup(function(){
 	Session.setDefault('status_filter', 'Applied');
 	Session.setDefault('dd_id', null);
-	if(!Meteor.user()){
-		Meteor.loginWithGoogle({
-			requestPermissions: ['email', 'profile']
-		});
-	}
 });
 
 Router.map(function(){
@@ -46,10 +41,18 @@ Template.admin_backpanel.rendered = function(){
 	}(window.jQuery);
 
 	$("#btnExport").click(function(e) {
-    window.open('data:application/vnd.ms-excel,' + $('#admintable').html());
-    e.preventDefault();
-});
+      	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
+	  	var downloadLink = document.createElement("a");
+		downloadLink.href = uri;
+		downloadLink.download = "backpanel-data.xls";
 
+		document.body.appendChild(downloadLink);
+		downloadLink.click();
+		document.body.removeChild(downloadLink);
+
+ 		myWindow.focus();
+    	e.preventDefault();
+	});
 }
 
 Template.admin_backpanel.helpers({
@@ -465,6 +468,13 @@ Template.application_form.events({
 			else{
 				$('#app_form1')[0].reset();
 				Router.go('application_success')
+				Meteor.logout(function(err){
+					if(err){
+
+					}else{
+
+					}
+				});
 			}
 		});
 	}
@@ -521,3 +531,45 @@ function json_decode (str_json) {
 		this.php_js.last_error_json = 4; // usable by json_last_error()
 		return null;
 }
+
+Template.admin_backpanel.created = function() {
+	console.log("admin_backpanel Created!")
+	var _pager = new Meteor.Paginator({
+	    templates: {
+	        content: "admin_backpanel"
+	    }
+	    , pagination: {
+	        resultsPerPage: 5 //default limit
+	    }
+	    , callbacks: {
+	        onPagingCompleted: function(skip, limit) {
+	            Session.set("pagingSkip", skip);
+	            Session.set("pagingLimit", limit);
+	        }
+	        , getDependentSubscriptionsHandles: function() {
+	              return [Meteor.subHandle];
+	        }
+	        , getTotalRecords: function(cb) {
+	              //you need to return the total record count here
+	              //using the provided callback
+	              Meteor.call("totalCount", function(err, result) {
+	                cb(result);
+	              });
+	        }
+	        , onTemplateRendered: function() {
+	            //regular render code
+	        }
+	        , onTemplateCreated: function() {
+	            Session.set("pagingSkip", 0);
+	            Session.set("pagingLimit", 5);
+	        }
+	    }
+	});
+
+	console.log(_pager);
+
+	Deps.autorun(function() {
+		Meteor.subHandle = Meteor.subscribe("Applications", Session.get("pagingSkip"), Session.get("pagingLimit"));
+	})
+};
+

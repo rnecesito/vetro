@@ -1,101 +1,141 @@
 <template name="application_form">
-	<div class="login-wrapper">
-		<div class="vetro-af-container">
-			<div class="vetro-header">
-				<h1>Vetro Partnership Form</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Vetro Partnership Form</h3>
 			</div>
-			<div class="vetro-container">
-				<span>Requirements:</span>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<dt>Requirements:</dt>
 				<li>Must get 100 or more Daily views (According To Socialblade.com)</li>
 				<li>Must have no copyright strikes.</li>
 				<li>Channel over 1 month old.</li>
 				<li>If you have music you need to provide proof you have permission to use it.</li>
-				<table>				
-					<form id="app_form1">
-						<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
-						<input type="hidden" name="full_name" value="{{currentUser.profile.name}}">
-						<input type="hidden" name="daily_views" id="yt_daily_views" value="">
-						<input type="hidden" name="total_views" id="yt_total_views" value="">
-						<input type="hidden" name="subscribers" id="yt_subscribers" value="">
-						<tr>
-							<td><b>Email</b></td>
-							<td><b>{{currentUser.services.google.email}}</b></td>
-							<td>
-								<b>YouTube Channel Name *</b>
-								<button class="btn btn-sm getYouTubeData" type="button">
-									Retrieve Stats [REQUIRED]
-								</button>
-							</td>
-							<td>
-								<input name="channel_name" style="width:210px;" id="yt_channel_name">								
-							</td>
-						</tr>						
-						<tr>
-							<td><b>Full Legal Name</b></td>
-							<td><b>{{currentUser.profile.name}}</b></td>
-							<td><b>Category *</b></td>
-							<td>
-								<select style="width:210px;" name="category">
-									<option selected>Gaming</option>
-									<option>Designs</option>
-									<option>Video Blogs</option>
-									<option>Music</option>
-									<option>Other</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-
-							<td><b>Skype *</b></td>
-							<td><input name="skype_email" style="width:210px;"></td>
-						</tr>
-						<tr>
-							<td><b>Daily Views</b></td>
-							<td id="yt_daily_views2"></td>
-							<td><b>Paypal Email *</b></td>
-							<td><input name="paypal_email" style="width:210px;"></td>
-						</tr>
-						<tr>
-							<td><b>Total Upload views</b></td>
-							<td id="yt_total_views2"></td>
-							<td><b>Copyright status *</b>
-								<div class="copyright-file">
-									<span class="glyphicon glyphicon-question-sign dropt" style="">
-										<span style="width:214px;">
-											<dt> 1. Go to youtube settings. </dt>
-											<dt> 2. Click view additional features. </dt>
-											<dt> 3. Take a clear screenshot of your account status. </dt>
-											<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
-											<dt> 5. Enter you screenshot URL </dt>
-										</span>
-									</span>
-								</div>
-							</td>
-							<td><input style="width:210px;" name="copyright_status_link"></td>
-						</tr>
-						<tr>
-							<td><b>Total Subscribers</b></td>
-							<td id="yt_subscribers2"></td>
-							<td><b>Music info *</b></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><div class="td-style"><b>Age</b></div></td>
-							<td><div class="td-style"><input name="age" style="width:210px;"></div></td>
-							<td colspan="2">Do you have any music on your channel you don't own? If so please state if you have permission.</td>
-						</tr>
-						<tr>
-							<td><div class="td-style2"><b>Country</b></div></td>
-							<td><div class="td-style2"><input name="country" style="width:210px;"></div></td>
-							<td colspan="2"><textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea></td>
-						</tr>
-						<tr>
-							<td colspan="3"></td>
-							<td><button type="submit" class="btn btn-primary submitbutton">Submit</button></td>
-						</tr>
-					</form>
-				</table>
 			</div>
+		</div>
+		<div class="row">
+			<form class="form" role="form" id="app_form1">
+					<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
+					<input type="hidden" name="full_name" value="{{currentUser.profile.name}}">
+					<input type="hidden" name="daily_views" id="yt_daily_views" value="">
+					<input type="hidden" name="total_views" id="yt_total_views" value="">
+					<input type="hidden" name="subscribers" id="yt_subscribers" value="">
+					{{#unless currentUser}}
+					<div class="row-lg-4">
+						<img class="btn" id="gplusconnect" height="60px" src="/gplus.png">
+					</div>
+					{{/unless}}
+					<div class="col-lg-4">
+						<div class="col-lg-6">
+					    	<label>Full Legal Name</label>
+					    	<label>Email</label><br>
+					    	<label>Daily Views</label>
+					    	<label>Total Upload views</label>
+					    	<label>Total Subscribers</label>
+					    	<label class="form-control-left">Age</label><br>
+					    	<label class="form-control-left">Country</label><br>
+					    	<label class="form-control-left">
+					    		Youtube Channel
+					    		<button class="btn btn-sm getYouTubeData" type="button">
+									Get Stats[REQUIRED]
+								</button>
+					    	</label>
+					    	
+					    </div>	
+					    <div class="col-lg-5">
+					    	<div class="row">
+					    		{{#if currentUser}}
+					     		<span>{{currentUser.profile.name}}</span>
+					    		{{else}}
+					    		<span> - </span>
+					    		{{/if}}
+					     	</div>
+					     	<div class="row align-style">
+					     		{{#if currentUser}}
+					     		<span>{{currentUser.services.google.email}}</span>
+					     		{{else}}
+					     		<span> - </span>
+					     		{{/if}}
+					     	</div>
+					     	<div class="row align-style">
+					     		<span id="yt_daily_views2">-</span>
+					     	</div>
+					     	<div class="row align-style">
+					     		<span id="yt_total_views2">-</span>
+					     	</div>
+					     	<div class="row align-style">
+					     		<span id="yt_subscribers2">-</span>
+					     	</div>
+					     	<div class="row align-style">
+					     		<input name="age" placeholder="Age" class="form-control">
+					     	</div>
+					     	<div class="row align-style">
+					     		<input name="country" placeholder="Country" class="form-control">
+					     	</div>
+					     	<div class="row align-style">
+					     		<input name="channel_name" placeholder="Channel Name" class="form-control" id="yt_channel_name">
+					     	</div>
+					    </div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+						    <div class="col-lg-4">
+						    	<label>Category*</label>
+						    </div>
+						    <div class="col-lg-8 form-style">
+						     	<select class="form-control" name="category">
+								  <option>Gaming</option>
+								  <option>Designs</option>
+								  <option>Video Blogs</option>
+								  <option>Music</option>
+								  <option>Other</option>
+								</select>
+						    </div>
+						    <div class="col-lg-4">
+						    	<label>Skype*</label>
+						    </div>
+						    <div class="col-lg-8 form-style">
+						    	<input name="skype_email" placeholder="Skype ID" class="form-control">
+						    </div>
+						    <div class="col-lg-4">
+					    		<label>Paypal Email*</label>
+					    	</div>
+					    	<div class="col-lg-8 form-style">
+					    		<input name="paypal_email" placeholder="Paypal Email" class="form-control">
+					    	</div>
+					    	<div class="col-lg-4">
+					    	<label>Copyright status *</label>
+					    	</div>
+					    	<div>
+					    	<span class="glyphicon glyphicon-question-sign dropt" style="margin-left: -10px;">
+								<span style="width:214px;">
+									<dt> 1. Go to youtube settings. </dt>
+									<dt> 2. Click view additional features. </dt>
+									<dt> 3. Take a clear screenshot of your account status. </dt>
+									<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
+									<dt> 5. Enter you screenshot URL </dt>
+								</span>
+							</span>
+					    	</div>
+						    <div class="col-lg-8 form-style">
+						    	<input name="copyright_status_link" placeholder="URL link" class="form-control cr-status">
+						    </div>
+						    <div class="col-lg-4">
+				    			<label>Music Info*</label>
+				    		</div>
+				    		<div class="col-lg-8 form-style">
+				    			<span>Do you have any music on your channel you don't own? If so please state if you have permission.</span>
+				    		</div>
+				    		<div class="col-lg-5 form-style">
+				    			<textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea>
+				    		</div>
+				    		<div class="col-lg-4 col-lg-offset-10">
+			    				<button type="submit" class="btn btn-primary submitbutton">Submit</button>
+			    			</div>
+						</div>
+				    </div>  
+			</form>
 		</div>
 	</div>
 </template>

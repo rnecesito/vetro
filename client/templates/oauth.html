@@ -1,21 +1,3 @@
 <template name="oauthtest">
 	{{loginButtons}}
-
-	{{#if currentUser}}
-		{{currentUser.services.google.email}}
-	{{/if}}
-	<br/>
-	<span id="signinButton">
-		  <span
-		    class="g-signin"
-		    data-callback="signinCallback"
-		    data-clientid="202055712427.apps.googleusercontent.com"
-		    data-cookiepolicy="single_host_origin"
-		    data-requestvisibleactions="http://schemas.google.com/AddActivity"
-		    data-scope="https://www.googleapis.com/auth/plus.login"
-		    data-scope="https://www.googleapis.com/auth/userinfo.email">
-		  </span>
-	</span>
-
-	<input type="button" class="btn btn-primary getYouTubeStats" value="Get YouTube Stats">
 </template>

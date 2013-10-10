@@ -43,10 +43,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				{{{ paginationButtons }}}
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button><a href="1251354216241621.txt" download="your-foo.txt" hidden class="aaa">Download Your Foo</a>
-			</div>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
+						</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button><a href="1251354216241621.txt" download="your-foo.txt" hidden class="aaa">Download Your Foo</a>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -68,43 +93,43 @@
 							<td>
 								
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td><a href="http://statfire.com/channels/{{channel_name}}" target="blank">{{channel_name}}</a></td>
@@ -115,15 +140,18 @@
 								{{#if copyright_status}}
 								<div id="{{_id}}" class="toggle btn btn-default btn-primary toggle-admin " data-toggle="toggle">
 									<input type="checkbox" checked id="{{_id}}">
+
 									<div class="toggle-group">
-										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
-										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
-										<span class="toggle-handle btn btn-default"></span>     
+										<label class="toggle-on btn btn-default btn-primary toggle-admin ">In Good Standing</label>
+										<label class="toggle-off btn btn-default active toggle-admin ">Not in Good Standing</label>
+										<span class="toggle-handle btn btn-default toggle-admin "></span>     
 									</div>
 								</div>
 								{{else}}
+
 								<div id="{{_id}}" class="toggle btn btn-default active off toggle-admin " data-toggle="toggle">
 									<input type="checkbox" checked id="{{_id}}">
+
 									<div class="toggle-group">
 										<label class="toggle-on btn btn-default btn-primary">In Good Standing</label>
 										<label class="toggle-off btn btn-default active">Not in Good Standing</label>
@@ -141,28 +169,31 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
 							<td>{{category}}</td>
 						</tr>
 						{{/each}}
+<<<<<<< HEAD
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+=======
+>>>>>>> 08665ef295616fc2373b98bab13040d86ccce32f
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -215,36 +246,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -265,43 +295,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -338,9 +368,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -350,16 +380,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -412,36 +442,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -462,43 +491,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -535,9 +564,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -547,16 +576,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -609,36 +638,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -659,43 +687,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -732,9 +760,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -744,16 +772,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -806,36 +834,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -856,43 +883,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -929,9 +956,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -941,16 +968,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -1003,36 +1030,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -1053,43 +1079,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -1126,9 +1152,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -1138,16 +1164,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -1200,36 +1226,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -1250,43 +1275,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -1323,9 +1348,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -1335,16 +1360,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -1397,36 +1422,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -1447,43 +1471,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -1520,9 +1544,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -1532,16 +1556,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -1594,36 +1618,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -1644,43 +1667,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -1717,9 +1740,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -1729,16 +1752,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -1791,36 +1814,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -1841,43 +1863,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -1914,9 +1936,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -1926,16 +1948,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -1988,36 +2010,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -2038,43 +2059,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -2111,9 +2132,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -2123,16 +2144,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -2185,36 +2206,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -2235,43 +2255,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -2308,9 +2328,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -2320,16 +2340,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -2382,36 +2402,35 @@
 					</li>
 				</ul>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>	
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<div class="input-group-btn btn-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								# of Rows
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
-								<li><a tabindex="-1" href="#">20</a></li>
-								<li><a tabindex="-1" href="#">30</a></li>
-								<li><a tabindex="-1" href="#">40</a></li>
-								<li><a tabindex="-1" href="#">50</a></li>
-								<li><a tabindex="-1" href="#">Custom</a></li>
-							</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>	
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn btn-group">
+						    <div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										# of Rows
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu row-menu" role="menu" aria-labelledby="dropdownMenu">
+										<li><a tabindex="-1" href="#">20</a></li>
+										<li><a tabindex="-1" href="#">30</a></li>
+										<li><a tabindex="-1" href="#">40</a></li>
+										<li><a tabindex="-1" href="#">50</a></li>
+										<li><a tabindex="-1" href="#">Custom</a></li>
+									</ul>
+								</div>
+						  </div>
 						</div>
-					</div>
-				</div>
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
-			</div>
+						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button>
 			<div class="admin-table">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -2432,43 +2451,43 @@
 						<tr>
 							<td>
 								<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-								<!-- Modal -->
-								<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title">User Information</h4>
-											</div>
-											<div class="modal-body">
-												Name: {{full_name}}
-												<br>
-												Email: {{email}}
-												<br>
-												Age: {{age}}
-												<br>
-												Country: {{country}}
-												<br>
-												Paypal Email: {{paypal_email}}
-												<br>
-												Channel Name: {{channel_name}}
-												<br>
-												Daily Views: {{daily_views}}
-												<br>
-												# of Subscribers: {{subscribers}}
-												<br>
-												Skype: {{skype_email}}
-												<br>
-												Status: {{status}}
-												<br>
-												Category: {{category}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 							</td>
 							<td>{{email}}</td>
 							<td>{{channel_name}}</td>
@@ -2505,9 +2524,9 @@
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-										{{#each getNS status}}
+									{{#each getNS status}}
 										<li><a tabindex="-1" href="#" id="{{ns}}" class="status_option">{{ns}}</a></li>										
-										{{/each}}
+									{{/each}}
 									</ul>
 								</div>
 							</td>
@@ -2517,16 +2536,16 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="div-pagination">
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
+				<div class="div-pagination">
+					<ul class="pagination">
+						 <li><a href="#">&laquo;</a></li>
+						 <li><a href="#">1</a></li>
+						 <li><a href="#">2</a></li>
+						 <li><a href="#">3</a></li>
+						 <li><a href="#">4</a></li>
+						 <li><a href="#">5</a></li>
+						 <li><a href="#">&raquo;</a></li>
+					</ul>
 			</div>
 		</div>
 	</div>
@@ -2556,43 +2575,43 @@
 				<tr>
 					<td>
 						<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-						<!-- Modal -->
-						<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										<h4 class="modal-title">User Information</h4>
-									</div>
-									<div class="modal-body">
-										Name: {{full_name}}
-										<br>
-										Email: {{email}}
-										<br>
-										Age: {{age}}
-										<br>
-										Country: {{country}}
-										<br>
-										Paypal Email: {{paypal_email}}
-										<br>
-										Channel Name: {{channel_name}}
-										<br>
-										Daily Views: {{daily_views}}
-										<br>
-										# of Subscribers: {{subscribers}}
-										<br>
-										Skype: {{skype_email}}
-										<br>
-										Status: {{status}}
-										<br>
-										Category: {{category}}
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									</div>
-								</div><!-- /.modal-content -->
-							</div><!-- /.modal-dialog -->
-						</div><!-- /.modal -->
+								  <!-- Modal -->
+								  <div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								    <div class="modal-dialog">
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								          <h4 class="modal-title">User Information</h4>
+								        </div>
+								        <div class="modal-body">
+								          Name: {{full_name}}
+								          <br>
+								          Email: {{email}}
+								          <br>
+								          Age: {{age}}
+								          <br>
+								          Country: {{country}}
+								          <br>
+								          Paypal Email: {{paypal_email}}
+								          <br>
+								          Channel Name: {{channel_name}}
+								          <br>
+								          Daily Views: {{daily_views}}
+								          <br>
+								          # of Subscribers: {{subscribers}}
+								          <br>
+								          Skype: {{skype_email}}
+								          <br>
+								          Status: {{status}}
+								          <br>
+								          Category: {{category}}
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div><!-- /.modal-content -->
+								    </div><!-- /.modal-dialog -->
+								  </div><!-- /.modal -->
 					</td>
 					<td>{{email}}</td>
 					<td>{{channel_name}}</td>
@@ -2601,9 +2620,9 @@
 					<td>{{skype_email}}</td>
 					<td>
 						{{#if copyright_status}}
-						In Good Standing
+							In Good Standing
 						{{else}}
-						Not In Good Standing
+							Not In Good Standing
 						{{/if}}
 					</td>
 					<td>{{status}}</td>
