@@ -11,14 +11,15 @@ body {
 	background: url('../../background.jpg');
 	background-attachment: fixed;
 	background-size: contain;
+	font-family: "Ubuntu",Tahoma,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .application-container {
-	width: 1080px;
+	width: 80%;
 	margin: 0 auto;
 	background: white;
 	opacity: 0.7;
-	padding-left: 70px;
+	padding: 0 30px;
 	border-radius: 3px;
 	margin-bottom: 10px;
 }
@@ -80,13 +81,10 @@ label {
 	margin-top: 10px;
 }
 
-.vetro-header {
-	padding: 1px 35px;
-	/*background: #0b61a4;*/
-}
-
-.vetro-header h1 {
-	color: #FFF;
+.AF-header h3 {
+	letter-spacing: 4px;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .vetro-container {
@@ -109,12 +107,15 @@ label {
 
 .submitbutton {
 	margin-bottom: 5px;
-	margin-left: -16px;
+	margin-left: 30px;
 }
 
 .musicinfo-box {
-	height: 100px;
-	width: 475px;
+	height: 86px;
+	width: 487px;
+	border-radius: 8px;
+	padding-left: 10px;
+	border-color: #888;
 }
 
 .td-style {
@@ -130,47 +131,6 @@ label {
 	display: inline-block;
 	margin-left: 0;
 }
-
-/*a.tooltip {
-	outline:none;
-}
-a.tooltip strong {
-	line-height:30px;
-}
-a.tooltip:hover {
-	text-decoration:none;
-} 
-a.tooltip span {
-    z-index:10;display:none; padding:14px 20px;
-    margin-top:60px; margin-left:-160px;
-    width:240px; line-height:16px;
-}
-
-a.tooltip:hover span {
-    display:inline; position:absolute; 
-    border:2px solid #FFF;  color:#EEE;
-    background:#000 url(src/css-tooltip-gradient-bg.png) repeat-x 0 0;
-}
-.callout {
-	z-index:20;
-	position:absolute;
-	border:0;
-	top:-14px;
-	left:120px;
-}*/
-    
-/*CSS3 extras*/
-/*a.tooltip span {
-    border-radius:2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-        
-    -moz-box-shadow: 0px 0px 8px 4px #666;
-    -webkit-box-shadow: 0px 0px 8px 4px #666;
-    box-shadow: 0px 0px 8px 4px #666;
-
-    opacity: 0.8;
-}*/
 
 span.dropt:hover {
 	text-decoration: none; background: #ffffff; z-index: 6;
@@ -215,7 +175,7 @@ span.dropt:hover span {
 }
 
 .form-right {
-	margin-left: 75px;
+	margin-left: -15px;
 }
 
 .form-style {
@@ -233,4 +193,41 @@ span.dropt:hover span {
 .form-control-left {
 	margin-top: 10px;
 }
+
+fieldset {
+	border: 1px solid #888 !important;
+	padding: 10px;
+	line-height: 18px;
+	border-radius: 8px;
+	margin-bottom: 30px;
+}
+
+fieldset span {
+	
+}
+
+legend {
+	width: inherit !important;
+	border-bottom: none !important;
+	margin-left: 5px;
+	margin-bottom: 0 !important;
+	padding: 0 8px;
+	font-weight: normal;
+}
+
+.googlebtn {
+	padding: 0;
+	margin: 0;
+	margin-left: -10px;
+	margin-top: -3px;
+}
+
+.requirements li {
+	font-size: 13px;
+}
+
+.info span {
+	line-height: 35px;
+}
+
 /* End of Fro's CSS*/
