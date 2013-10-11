@@ -8,10 +8,18 @@ Accounts.loginServiceConfiguration.insert({
 	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
 });
 
+
+// Meteor.publish("Applications", function(skip, limit) {
+// 	return applications.find({}, {
+//   		skip: skip || 0,
+//   		limit: limit || 10
+//     });
+// });
+
 Meteor.methods({
-	checkYT: function () {
+	checkYT: function (channel) {
 		this.unblock();
-		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&key=AIzaSyBm3SF1e_SXkCPpQBBoPI37HrCfnuSfaRw");
+		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&forUsername="+channel+"&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY");
 	},
 	test_fn: function() {
 		var url = "https://www.googleapis.com/youtube/v3/channels";
@@ -25,7 +33,10 @@ Meteor.methods({
 			var retdata =  result.data;
 			Session.set("myItems", retdata.items);
 		});
-	}
+	},
+	totalCount: function() {
+  		return applications.find().count();
+    }
 });
 
 Meteor.startup(function(){

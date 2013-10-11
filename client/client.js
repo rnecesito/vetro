@@ -69,8 +69,8 @@ $("#row").click(function(e) {
         });
 
 	$("#btnExport").click(function(e) {
-      var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
- 	  var downloadLink = document.createElement("a");
+      	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
+	  	var downloadLink = document.createElement("a");
 		downloadLink.href = uri;
 		downloadLink.download = "backpanel-data.xls";
 
@@ -78,10 +78,9 @@ $("#row").click(function(e) {
 		downloadLink.click();
 		document.body.removeChild(downloadLink);
 
-     myWindow.focus();
-    e.preventDefault();
-});
-
+ 		myWindow.focus();
+    	e.preventDefault();
+	});
 }
 
 Template.admin_backpanel.helpers({
@@ -457,6 +456,24 @@ Template.application_form.events({
 			}
 		});
 	},
+	'click .getYouTubeData':function(e,t){
+		var channel = $('#yt_channel_name').val();
+		Meteor.call("checkYT", channel, function(error, results) {
+			var jsondecoded = json_decode(results.content);		    
+		    if (jsondecoded.items.length === 0) {
+		    	alert("Invalid YouTube channel name.");
+		    }else{
+		    	console.log(jsondecoded); //results.data should be a JSON object
+		    	console.log(jsondecoded.items[0].kind);
+		    	$('#yt_daily_views').val(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_daily_views2').html(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_total_views').val(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_total_views2').html(jsondecoded.items[0].statistics.viewCount);
+		    	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
+		    	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
+		    }
+		});
+	},
 	'submit': function(e,t){
 		form = {};
 
@@ -479,6 +496,13 @@ Template.application_form.events({
 			else{
 				$('#app_form1')[0].reset();
 				Router.go('application_success')
+				Meteor.logout(function(err){
+					if(err){
+
+					}else{
+
+					}
+				});
 			}
 		});
 	}
@@ -532,6 +556,48 @@ function json_decode (str_json) {
 	}
 
 	this.php_js = this.php_js || {};
-		this.php_js.last_error_json = 4; // usable by json_last_error()
+		this.php_jslast_error_json = 4; // usable by json_last_error()
 		return null;
 }
+
+Template.admin_backpanel.created = function() {
+	console.log("admin_backpanel Created!")
+	var _pager = new Meteor.Paginator({
+	    templates: {
+	        content: "admin_backpanel"
+	    }
+	    , pagination: {
+	        resultsPerPage: 5 //default limit
+	    }
+	    , callbacks: {
+	        onPagingCompleted: function(skip, limit) {
+	            Session.set("pagingSkip", skip);
+	            Session.set("pagingLimit", limit);
+	        }
+	        , getDependentSubscriptionsHandles: function() {
+	              return [Meteor.subHandle];
+	        }
+	        , getTotalRecords: function(cb) {
+	              //you need to return the total record count here
+	              //using the provided callback
+	              Meteor.call("totalCount", function(err, result) {
+	                cb(result);
+	              });
+	        }
+	        , onTemplateRendered: function() {
+	            //regular render code
+	        }
+	        , onTemplateCreated: function() {
+	            Session.set("pagingSkip", 0);
+	            Session.set("pagingLimit", 5);
+	        }
+	    }
+	});
+
+	console.log(_pager);
+
+	Deps.autorun(function() {
+		Meteor.subHandle = Meteor.subscribe("Applications", Session.get("pagingSkip"), Session.get("pagingLimit"));
+	})
+};
+
