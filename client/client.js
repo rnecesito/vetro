@@ -40,6 +40,34 @@ Template.admin_backpanel.rendered = function(){
 		});
 	}(window.jQuery);
 
+	$(document).ready(function() {
+	$('.atable').dataTable( {
+		"aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
+		       } );
+		    } );
+
+	$.extend( true, $.fn.dataTableExt.oStdClasses, {
+		"sPaginationType": "bootstrap",
+	    "sWrapper": "dataTables_wrapper form-inline"
+	} );
+
+$("#row").click(function(e) {
+			alert("test");
+            // Constant retrieved from server-side via JSP
+            var maxRows = 2;
+
+            var table = document.getElementById('adtable');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        });
+
 	$("#btnExport").click(function(e) {
       	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
 	  	var downloadLink = document.createElement("a");
@@ -531,7 +559,7 @@ function json_decode (str_json) {
 	}
 
 	this.php_js = this.php_js || {};
-		this.php_js.last_error_json = 4; // usable by json_last_error()
+		this.php_jslast_error_json = 4; // usable by json_last_error()
 		return null;
 }
 
