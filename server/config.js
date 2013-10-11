@@ -21,18 +21,21 @@ Meteor.methods({
 		this.unblock();
 		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&forUsername="+channel+"&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY");
 	},
+	checkYT2: function (channel) {
+		this.unblock();
+		var at = Meteor.user().services.google.accessToken;
+		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY&access_token="+at);
+	},
 	test_fn: function() {
-		var url = "https://www.googleapis.com/youtube/v3/channels";
-		var params = {
-			access_token: Meteor.user().services.google.accessToken,
-			part: "snippet",
-			mine: "true"
-		};
-		return Meteor.http.get(url, {params: params}, function (err, result) {
-			console.log(result.statusCode, result.data);
-			var retdata =  result.data;
-			Session.set("myItems", retdata.items);
-		});
+		this.unblock();
+		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY&access_token="+Meteor.user().services.google.accessToken;
+		console.log(url);
+		// var params = {
+		// 	access_token: Meteor.user().services.google.accessToken,
+		// 	part: "snippet",
+		// 	mine: "true"
+		// };
+		return Meteor.http.call("GET",url);
 	},
 	totalCount: function() {
   		return applications.find().count();

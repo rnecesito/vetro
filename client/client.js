@@ -416,8 +416,9 @@ Template.application_form.rendered = function(){
 Template.application_form.events({
 	'click #gplusconnect': function(e,t){
 		Meteor.loginWithGoogle({
-			requestPermissions: ['email', 'profile']
+			requestPermissions: ['profile', 'email', 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube.readonly']
 		});
+		
 	},
 	'click .logoutgplus': function(e,t){
 		Meteor.logout(function(err){
@@ -430,20 +431,22 @@ Template.application_form.events({
 	},
 	'click .getYouTubeData':function(e,t){
 		var channel = $('#yt_channel_name').val();
-		Meteor.call("checkYT", channel, function(error, results) {
-			var jsondecoded = json_decode(results.content);		    
-		    if (jsondecoded.items.length === 0) {
-		    	alert("Invalid YouTube channel name.");
-		    }else{
-		    	console.log(jsondecoded); //results.data should be a JSON object
-		    	console.log(jsondecoded.items[0].kind);
-		    	$('#yt_daily_views').val(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_daily_views2').html(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_total_views').val(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_total_views2').html(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
-		    	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
-		    }
+		// Meteor.call("checkYT", channel, function(error, results) {
+		// 	var jsondecoded = json_decode(results.content);		    
+		//     if (jsondecoded.items.length === 0) {
+		//     	alert("Invalid YouTube channel name.");
+		//     }else{
+		//     	$('#yt_daily_views').val(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_daily_views2').html(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_total_views').val(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_total_views2').html(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
+		//     	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
+		//     }
+		// });
+		Meteor.call("checkYT2",function(error,results){
+			var jsondecoded = json_decode(results.content);
+			console.log(jsondecoded);
 		});
 	},
 	'submit': function(e,t){
@@ -458,7 +461,7 @@ Template.application_form.events({
 		applications.insert( form, function(err){
 			if(err){
 				if(err.error === 403){
-
+					
 				}else{
 					alert("Something went wrong. Please try again.");
 					console.log(err);
