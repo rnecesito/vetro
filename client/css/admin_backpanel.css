@@ -69,7 +69,7 @@ thead {
 }
 
 .cs {
-	width: 200px;
+	width: 205px;
 }
 
 .table tr:hover {
@@ -185,8 +185,10 @@ thead {
 }
 
 .glyphicon-picture {
-	font-size: 175%;
+	zoom: 150%;
 	top: 0px;
+	line-height: normal !important;
+	height: 21px;
 }
 /*End of Juston's CSS*/
 

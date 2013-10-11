@@ -68,6 +68,22 @@ $("#row").click(function(e) {
             }
         });
 
+	// $("#btnExport").click(function(e) {
+ //      	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
+	//   	var downloadLink = document.createElement("a");
+	// 	downloadLink.href = uri;
+	// 	downloadLink.download = "backpanel-data.xls";
+
+	// 	document.body.appendChild(downloadLink);
+	// 	downloadLink.click();
+	// 	document.body.removeChild(downloadLink);
+
+ // 		myWindow.focus();
+ //    	e.preventDefault();
+	// });
+}
+
+Template.to_excel.rendered = function(){
 	$("#btnExport").click(function(e) {
       	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
 	  	var downloadLink = document.createElement("a");
