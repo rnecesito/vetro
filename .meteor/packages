@@ -13,4 +13,5 @@ bootstrap-3
 accounts-google
 accounts-ui
 http
-paginator
+
+datatables
