@@ -8,7 +8,19 @@ body {
 	color: #5C6161;
 	line-height: 23px;
 	margin: 0;
-	/*background: url('../../bg.png');*/
+	background: url('../../background.jpg');
+	background-attachment: fixed;
+	background-size: contain;
+}
+
+.application-container {
+	width: 1080px;
+	margin: 0 auto;
+	background: white;
+	opacity: 0.7;
+	padding-left: 70px;
+	border-radius: 3px;
+	margin-bottom: 10px;
 }
 
 .login-wrapper {
@@ -97,11 +109,12 @@ label {
 
 .submitbutton {
 	margin-bottom: 5px;
+	margin-left: -16px;
 }
 
 .musicinfo-box {
 	height: 100px;
-	width: 595px;
+	width: 475px;
 }
 
 .td-style {
@@ -199,6 +212,10 @@ span.dropt:hover span {
 
 .form {
 	margin-top: 20px;
+}
+
+.form-right {
+	margin-left: 75px;
 }
 
 .form-style {
