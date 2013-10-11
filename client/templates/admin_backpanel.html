@@ -76,7 +76,6 @@
 						<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button><a href="1251354216241621.txt" download="your-foo.txt" hidden class="aaa">Download Your Foo</a>
 			<div class="div-pagination">
 				{{{ paginationButtons }}}
-				<button type="button" id="btnExport" class="btn btn-default">Export to Excel</button><a href="1251354216241621.txt" download="your-foo.txt" hidden class="aaa">Download Your Foo</a>
 			</div>
 			<div class="admin-table">
 				<table class="table table-striped table-hover atable">
@@ -164,9 +163,8 @@
 								</div>
 								<span class="glyphicon glyphicon-question-sign"></span>
 								{{/if}}
-								<button type="button" class="btn btn-default btn-sm btn-glyph"><span class="glyphicon glyphicon-picture"></span></button>
-							</div>
 								<a href="{{copyright_status_link}}" target="blank"><span class="glyphicon glyphicon-picture btn btn-default btn-sm btn-glyph"></span></a>
+							</div>
 							</td>
 							<td>
 								<div class="btn-group">
@@ -2599,46 +2597,6 @@
 				{{#each applicants}}
 				<tr>
 					<td>{{full_name}}</td>
-					<td>
-						<a data-toggle="modal" id="info-modal" href="#{{_id}}">{{full_name}}</a>
-						<!-- Modal -->
-						<div class="modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										<h4 class="modal-title">User Information</h4>
-									</div>
-									<div class="modal-body">
-										Name: {{full_name}}
-										<br>
-										Email: {{email}}
-										<br>
-										Age: {{age}}
-										<br>
-										Country: {{country}}
-										<br>
-										Paypal Email: {{paypal_email}}
-										<br>
-										Channel Name: {{channel_name}}
-										<br>
-										Daily Views: {{daily_views}}
-										<br>
-										# of Subscribers: {{subscribers}}
-										<br>
-										Skype: {{skype_email}}
-										<br>
-										Status: {{status}}
-										<br>
-										Category: {{category}}
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									</div>
-								</div><!-- /.modal-content -->
-							</div><!-- /.modal-dialog -->
-						</div><!-- /.modal -->
-					</td>
 					<td>{{email}}</td>
 					<td>{{channel_name}}</td>
 					<td>{{daily_views}}</td>
