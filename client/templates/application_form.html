@@ -1,82 +1,86 @@
 <template name="application_form">
 	<div class="application-container">
 		<div class="row">
-			<div class="col-lg-12">
-				<h3>Vetro Partnership Form</h3>
+			<div class="AF-header">
+				<div class="col-lg-12">
+					<h3>Vetro Partnership Form</h3>
+				</div>
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-lg-6 requirements">
+				<form>
+				<fieldset>
+					<legend>Requirements</legend>
+					<li>Must get 100 or more Daily views (According To Socialblade.com)</li>
+					<li>Must have no copyright strikes.</li>
+					<li>Channel over 1 month old.</li>
+					<li>If you have music you need to provide proof you have permission to use it.</li>
+				</fieldset>
+				</form>
+			</div>
 			<div class="col-lg-6">
-				<dt>Requirements:</dt>
-				<li>Must get 100 or more Daily views (According To Socialblade.com)</li>
-				<li>Must have no copyright strikes.</li>
-				<li>Channel over 1 month old.</li>
-				<li>If you have music you need to provide proof you have permission to use it.</li>
+					<img class="btn googlebtn" id="gplusconnect" height="125px" width="506px" src="/gplus.png">
 			</div>
 		</div>
 		<div class="row">
-			<form class="form" role="form" id="app_form1">
+			<form role="form" id="app_form1">
 					<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
 					<input type="hidden" name="full_name" value="{{currentUser.profile.name}}">
 					<input type="hidden" name="daily_views" id="yt_daily_views" value="">
 					<input type="hidden" name="total_views" id="yt_total_views" value="">
 					<input type="hidden" name="subscribers" id="yt_subscribers" value="">
 					{{#unless currentUser}}
-					<div class="row-lg-4">
-						<img class="btn" id="gplusconnect" height="60px" src="/gplus.png">
-					</div>
 					{{/unless}}
-					<div class="col-lg-4">
-						<div class="col-lg-7">
-					    	<label>Full Legal Name</label>
-					    	<label>Email</label><br>
-					    	<label>Daily Views</label>
-					    	<label>Total Upload views</label>
-					    	<label>Total Subscribers</label>
-					    	<label class="form-control-left">Age</label><br>
-					    	<label class="form-control-left">Country</label><br>
-					    	<label class="form-control-left">
-					    		Youtube Channel
-					    		<button class="btn btn-sm getYouTubeData" type="button">
-									Get Stats[REQUIRED]
-								</button>
-					    	</label>
-					    	
-					    </div>	
-					    <div class="col-lg-5">
-					    	<div class="row">
-					    		{{#if currentUser}}
-					     		<span>{{currentUser.profile.name}}</span>
-					    		{{else}}
-					    		<span> - </span>
-					    		{{/if}}
-					     	</div>
-					     	<div class="row align-style">
-					     		{{#if currentUser}}
-					     		<span>{{currentUser.services.google.email}}</span>
-					     		{{else}}
-					     		<span> - </span>
-					     		{{/if}}
-					     	</div>
-					     	<div class="row align-style">
-					     		<span id="yt_daily_views2">-</span>
-					     	</div>
-					     	<div class="row align-style">
-					     		<span id="yt_total_views2">-</span>
-					     	</div>
-					     	<div class="row align-style">
-					     		<span id="yt_subscribers2">-</span>
-					     	</div>
-					     	<div class="row align-style">
-					     		<input name="age" placeholder="Age" class="form-control">
-					     	</div>
-					     	<div class="row align-style">
-					     		<input name="country" placeholder="Country" class="form-control">
-					     	</div>
-					     	<div class="row align-style">
-					     		<input name="channel_name" placeholder="Channel Name" class="form-control" id="yt_channel_name">
-					     	</div>
-					    </div>
+					
+					<div class="col-lg-6">
+						<div class="row">
+							<div class="col-lg-12">
+								<fieldset class="info">
+									<legend>Youtube Stats</legend>
+									<div class="col-lg-6">
+											<b><span>Youtube Channel</span><b><br>
+									    	<b><span>Daily Views</span><b><br>
+									    	<b><span>Total Upload Views</span><b><br>
+									    	<b><span>Total Subscribers</span><b><br>
+								    </div>
+								    <div class="col-lg-6">
+								     		<span id="yt_channel_name">-</span><br>
+								     		<span id="yt_daily_views2">-</span><br>
+								     		<span id="yt_total_views2">-</span><br>
+								     		<span id="yt_subscribers2">-</span>
+								     <!-- 	<div class="row">
+								     		{{#if currentUser}}
+								     		<span>{{currentUser.services.google.email}}</span>
+								     		{{else}}
+								     		<span> - </span>
+								     		{{/if}}
+								     	</div> -->
+								    </div>
+						    	</fieldset>
+						    </div>
+						</div>
+						<div class="row">
+						 	<div class="col-lg-12">
+							    	<fieldset class="info">
+							    		<legend>Personal Info</legend>
+							    <div class="col-lg-6">
+							    			<b><span>Full Legal Name</span></b><br>
+							    			<b><span>Age</span></b><br>
+							    			<b><span>Country</span></b>
+							    </div>
+							    <div class="col-lg-6">
+							    		{{#if currentUser}}
+							     		<span>{{currentUser.profile.name}}</span>
+							    		{{else}}
+							    		<span> - </span><br>
+							    		{{/if}}
+								     	<span id="yt_age">-</span><br>
+								     	<span id="yt_country">-</span>
+							    </div>
+							    	</fieldset>
+							</div>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6 form-right">
@@ -127,10 +131,10 @@
 				    		<div class="col-lg-8 form-style">
 				    			<span>Do you have any music on your channel you don't own? If so please state if you have permission.</span>
 				    		</div>
-				    		<div class="col-lg-5 form-style">
+				    		<div class="col-lg-12 form-style">
 				    			<textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea>
 				    		</div>
-				    		<div class="col-lg-4 col-lg-offset-10">
+				    		<div class="col-lg-4 col-lg-offset-9">
 			    				<button type="submit" class="btn btn-primary submitbutton">Submit</button>
 			    			</div>
 						</div>
