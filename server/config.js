@@ -5,7 +5,8 @@ Accounts.loginServiceConfiguration.remove({
 Accounts.loginServiceConfiguration.insert({
 	service: "google",
 	clientId: "202055712427.apps.googleusercontent.com",
-	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
+	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w",
+	responseType: "token",
 });
 
 
@@ -21,10 +22,10 @@ Meteor.methods({
 		this.unblock();
 		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&forUsername="+channel+"&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY");
 	},
-	checkYT2: function (channel) {
-		this.unblock();
-		var at = Meteor.user().services.google.accessToken;
-		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY&access_token="+at);
+	checkYT2: function (token) {
+		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&access_token="+token;
+		var retdata = Meteor.http.call("GET", url);
+		return retdata;
 	},
 	test_fn: function() {
 		this.unblock();
