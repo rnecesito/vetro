@@ -40,6 +40,34 @@ Template.admin_backpanel.rendered = function(){
 		});
 	}(window.jQuery);
 
+	$(document).ready(function() {
+	$('.atable').dataTable( {
+		"aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
+		       } );
+		    } );
+
+	$.extend( true, $.fn.dataTableExt.oStdClasses, {
+		"sPaginationType": "bootstrap",
+	    "sWrapper": "dataTables_wrapper form-inline"
+	} );
+
+$("#row").click(function(e) {
+			alert("test");
+            // Constant retrieved from server-side via JSP
+            var maxRows = 2;
+
+            var table = document.getElementById('adtable');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        });
+
 	$("#btnExport").click(function(e) {
       	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
 	  	var downloadLink = document.createElement("a");
@@ -416,8 +444,9 @@ Template.application_form.rendered = function(){
 Template.application_form.events({
 	'click #gplusconnect': function(e,t){
 		Meteor.loginWithGoogle({
-			requestPermissions: ['email', 'profile']
+			requestPermissions: ['profile', 'email', 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube.readonly']
 		});
+		
 	},
 	'click .logoutgplus': function(e,t){
 		Meteor.logout(function(err){
@@ -430,20 +459,22 @@ Template.application_form.events({
 	},
 	'click .getYouTubeData':function(e,t){
 		var channel = $('#yt_channel_name').val();
-		Meteor.call("checkYT", channel, function(error, results) {
-			var jsondecoded = json_decode(results.content);		    
-		    if (jsondecoded.items.length === 0) {
-		    	alert("Invalid YouTube channel name.");
-		    }else{
-		    	console.log(jsondecoded); //results.data should be a JSON object
-		    	console.log(jsondecoded.items[0].kind);
-		    	$('#yt_daily_views').val(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_daily_views2').html(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_total_views').val(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_total_views2').html(jsondecoded.items[0].statistics.viewCount);
-		    	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
-		    	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
-		    }
+		// Meteor.call("checkYT", channel, function(error, results) {
+		// 	var jsondecoded = json_decode(results.content);		    
+		//     if (jsondecoded.items.length === 0) {
+		//     	alert("Invalid YouTube channel name.");
+		//     }else{
+		//     	$('#yt_daily_views').val(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_daily_views2').html(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_total_views').val(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_total_views2').html(jsondecoded.items[0].statistics.viewCount);
+		//     	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
+		//     	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
+		//     }
+		// });
+		Meteor.call("checkYT2",function(error,results){
+			var jsondecoded = json_decode(results.content);
+			console.log(jsondecoded);
 		});
 	},
 	'submit': function(e,t){
@@ -458,7 +489,7 @@ Template.application_form.events({
 		applications.insert( form, function(err){
 			if(err){
 				if(err.error === 403){
-
+					
 				}else{
 					alert("Something went wrong. Please try again.");
 					console.log(err);
@@ -528,7 +559,7 @@ function json_decode (str_json) {
 	}
 
 	this.php_js = this.php_js || {};
-		this.php_js.last_error_json = 4; // usable by json_last_error()
+		this.php_jslast_error_json = 4; // usable by json_last_error()
 		return null;
 }
 
