@@ -29,9 +29,12 @@
 			<form role="form" id="app_form1">
 					<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
 					<input type="hidden" name="full_name" value="{{currentUser.profile.name}}">
+					<input type="hidden" name="channel_id" id="channel_id" value="">
+					<input type="hidden" name="channel_name" id="yt_channel_name" value="">
 					<input type="hidden" name="daily_views" id="yt_daily_views" value="">
 					<input type="hidden" name="total_views" id="yt_total_views" value="">
 					<input type="hidden" name="subscribers" id="yt_subscribers" value="">
+					<input type="hidden" name="copyright_status" id="cr_status" value="">
 					<div class="col-lg-6">
 						<div class="row">
 							<div class="col-lg-12">
@@ -44,7 +47,7 @@
 									    	<b><span>Total Subscribers</span><b><br>
 								    </div>
 								    <div class="col-lg-6">
-								     		<span id="yt_channel_name">-</span><br>
+								     		<span id="yt_channel_name2">-</span><br>
 								     		<span id="yt_daily_views2">-</span><br>
 								     		<span id="yt_total_views2">-</span><br>
 								     		<span id="yt_subscribers2">-</span>
@@ -60,24 +63,38 @@
 						    </div>
 						</div>
 						<div class="row">
-						 	<div class="col-lg-12">
-							    	<fieldset class="info">
-							    		<legend>Personal Info</legend>
-							    <div class="col-lg-6">
+						 	<div class="col-lg-12 form-left">
+						    	<fieldset class="info">
+						    		<legend>Personal Info</legend>
+						    		<div class="row test2">
+							    		<div class="col-lg-4">
 							    			<b><span>Full Legal Name</span></b><br>
+							    		</div>
+							    		<div class="col-lg-7">
+							    			{{#if currentUser}}
+								     		<span>{{currentUser.profile.name}}</span><br>
+								    		{{else}}
+								    		<span>-</span><br>
+								    		{{/if}}
+							    		</div>
+							    	</div>
+							    	<div class="row test test2">
+							    		<div class="col-lg-4">
 							    			<b><span>Age</span></b><br>
+							    		</div>
+							    		<div class="col-lg-7">
+							    			<input name="age" id="yt_age" placeholder="Current Age" class="form-control">
+							    		</div>
+							    	</div>
+							    	<div class="row test test2">
+									    <div class="col-lg-4">
 							    			<b><span>Country</span></b>
-							    </div>
-							    <div class="col-lg-6">
-							    		{{#if currentUser}}
-							     		<span>{{currentUser.profile.name}}</span>
-							    		{{else}}
-							    		<span> - </span><br>
-							    		{{/if}}
-								     	<span id="yt_age">-</span><br>
-								     	<span id="yt_country">-</span>
-							    </div>
-							    	</fieldset>
+									    </div>							    		
+									    <div class="col-lg-7">
+									     	<input name="country" id="yt_country" placeholder="Country of Residence" class="form-control">
+									    </div>
+							    	</div>									    			
+						    	</fieldset>
 							</div>
 						</div>
 					</div>
@@ -99,30 +116,30 @@
 						    	<label>Skype*</label>
 						    </div>
 						    <div class="col-lg-8 form-style">
-						    	<input name="skype_email" placeholder="Skype ID" class="form-control">
+						    	<input name="skype_email" id="skype_email" placeholder="Skype ID" class="form-control">
 						    </div>
 						    <div class="col-lg-4">
 					    		<label>Paypal Email*</label>
 					    	</div>
 					    	<div class="col-lg-8 form-style">
-					    		<input name="paypal_email" placeholder="Paypal Email" class="form-control">
+					    		<input name="paypal_email" id="paypal_email" placeholder="Paypal Email" class="form-control">
 					    	</div>
 					    	<div class="col-lg-4">
 					    	<label>Copyright status</label>
 					    	</div>
 					    	<div>
-					    	<span class="glyphicon glyphicon-question-sign dropt" style="margin-left: -10px;">
-								<span style="width:214px;">
-									<dt> 1. Go to youtube settings. </dt>
-									<dt> 2. Click view additional features. </dt>
-									<dt> 3. Take a clear screenshot of your account status. </dt>
-									<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
-									<dt> 5. Enter you screenshot URL </dt>
+						    	<span class="glyphicon glyphicon-question-sign dropt" style="margin-left: -10px;">
+									<span style="width:214px;">
+										<dt> 1. Go to youtube settings. </dt>
+										<dt> 2. Click view additional features. </dt>
+										<dt> 3. Take a clear screenshot of your account status. </dt>
+										<dt> 4. Upload your screenshot using gyazo(gyazo.com)</dt>
+										<dt> 5. Enter you screenshot URL </dt>
+									</span>
 								</span>
-							</span>
 					    	</div>
 						    <div class="col-lg-8 form-style">
-						    	<input name="copyright_status_link" placeholder="URL link" class="form-control cr-status">
+						    	<input name="copyright_status_link" id="copyright_status_link" placeholder="URL link" class="form-control cr-status">
 						    </div>
 						    <div class="col-lg-4">
 				    			<label>Music Info*</label>
@@ -131,7 +148,7 @@
 				    			<span>Do you have any music on your channel you don't own? If so please state if you have permission.</span>
 				    		</div>
 				    		<div class="col-lg-12 form-style">
-				    			<textarea name="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea>
+				    			<textarea name="music_permissions" id="music_permissions" class="musicinfo-box" type="text" placeholder="i.e. 'Hey Jude by the Beatles' - Permission from EMI"></textarea>
 				    		</div>
 				    		<div class="col-lg-4 col-lg-offset-9">
 			    				<button type="submit" class="btn btn-primary submitbutton">Submit</button>

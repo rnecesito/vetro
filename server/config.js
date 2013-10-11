@@ -7,6 +7,7 @@ Accounts.loginServiceConfiguration.insert({
 	clientId: "202055712427.apps.googleusercontent.com",
 	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w",
 	responseType: "token",
+	requestPermissions: ['profile', 'email', 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly' , 'https://www.googleapis.com/auth/youtubepartner', 'https://www.googleapis.com/auth/youtubepartner-channel-audit', 'https://www.googleapis.com/auth/plus.me']
 });
 
 Meteor.methods({
@@ -16,7 +17,7 @@ Meteor.methods({
 	},
 	checkYT2: function (token) {
 		this.unblock();
-		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet%2CauditDetails&mine=true&access_token="+token;
+		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2CbrandingSettings%2Cstatistics%2Csnippet%2CauditDetails&mine=true&access_token="+token;
 		var retdata = Meteor.http.call("GET", url);
 		return retdata;
 	},
