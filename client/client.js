@@ -23,6 +23,8 @@ Router.map(function(){
 	this.route('completed', {path: '/admin_backpanel/completed'});
 });
 
+
+
 Template.admin_backpanel.rendered = function(){
 	!function ($) {
 		$(document).on('click.bootstrap-toggle', '[data-toggle^=toggle]', function(e) {
@@ -41,32 +43,65 @@ Template.admin_backpanel.rendered = function(){
 	}(window.jQuery);
 
 	$(document).ready(function() {
-	$('.atable').dataTable( {
-		"aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
-		       } );
-		    } );
+$('.atable').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
+    , "sPaginationType": "bootstrap"
+    , "oLanguage": {
+        "sLengthMenu": "_MENU_ records per page"
+    },
+    "aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
+});
+});
 
-	$.extend( true, $.fn.dataTableExt.oStdClasses, {
-		"sPaginationType": "bootstrap",
-	    "sWrapper": "dataTables_wrapper form-inline"
-	} );
 
-$("#row").click(function(e) {
-			alert("test");
-            // Constant retrieved from server-side via JSP
-            var maxRows = 2;
+    // if (!($("#tabletest").hasClass("dataTable"))) {
+    //     $('#tabletest').dataTable({
+    //         "aaSorting": []
+    //         , "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
+    //         , "sPaginationType": "bootstrap"
+    //         , "oLanguage": {
+    //             "sLengthMenu": "_MENU_ records per page"
+    //         }
+    //         , "aoColumns": [
+    //             { "sTitle": "First Data", "mData": function (data) { return data.firstData },
+    //         } ]
+        
+    //     });
 
-            var table = document.getElementById('adtable');
-            var wrapper = table.parentNode;
-            var rowsInTable = table.rows.length;
-            var height = 0;
-            if (rowsInTable > maxRows) {
-                for (var i = 0; i < maxRows; i++) {
-                    height += table.rows[i].clientHeight;
-                }
-                wrapper.style.height = height + "px";
-            }
-        });
+    //     $('#tabletest').dataTable().fnClearTable();
+    //     $('#tabletest').dataTable().fnAddData(Collection.find().fetch());
+    // }
+
+
+
+// 	$(document).ready(function() {
+// 		console.log("test")
+// 	$('.atable').dataTable( {
+// 		"aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
+// 		       } );
+// 		    } );
+
+// 	$.extend( true, $.fn.dataTableExt.oStdClasses, {
+// 		"sPaginationType": "bootstrap",
+// 	    "sWrapper": "dataTables_wrapper form-inline"
+// 	} );
+
+// $("#row").click(function(e) {
+// 			alert("test");
+//             // Constant retrieved from server-side via JSP
+//             var maxRows = 2;
+
+//             var table = document.getElementById('adtable');
+//             var wrapper = table.parentNode;
+//             var rowsInTable = table.rows.length;
+//             var height = 0;
+//             if (rowsInTable > maxRows) {
+//                 for (var i = 0; i < maxRows; i++) {
+//                     height += table.rows[i].clientHeight;
+//                 }
+//                 wrapper.style.height = height + "px";
+//             }
+//         });
 
 	// $("#btnExport").click(function(e) {
  //      	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
@@ -81,6 +116,7 @@ $("#row").click(function(e) {
  // 		myWindow.focus();
  //    	e.preventDefault();
 	// });
+
 }
 
 Template.to_excel.rendered = function(){
@@ -578,45 +614,3 @@ function json_decode (str_json) {
 		this.php_jslast_error_json = 4; // usable by json_last_error()
 		return null;
 }
-
-Template.admin_backpanel.created = function() {
-	console.log("admin_backpanel Created!")
-	var _pager = new Meteor.Paginator({
-	    templates: {
-	        content: "admin_backpanel"
-	    }
-	    , pagination: {
-	        resultsPerPage: 5 //default limit
-	    }
-	    , callbacks: {
-	        onPagingCompleted: function(skip, limit) {
-	            Session.set("pagingSkip", skip);
-	            Session.set("pagingLimit", limit);
-	        }
-	        , getDependentSubscriptionsHandles: function() {
-	              return [Meteor.subHandle];
-	        }
-	        , getTotalRecords: function(cb) {
-	              //you need to return the total record count here
-	              //using the provided callback
-	              Meteor.call("totalCount", function(err, result) {
-	                cb(result);
-	              });
-	        }
-	        , onTemplateRendered: function() {
-	            //regular render code
-	        }
-	        , onTemplateCreated: function() {
-	            Session.set("pagingSkip", 0);
-	            Session.set("pagingLimit", 5);
-	        }
-	    }
-	});
-
-	console.log(_pager);
-
-	Deps.autorun(function() {
-		Meteor.subHandle = Meteor.subscribe("Applications", Session.get("pagingSkip"), Session.get("pagingLimit"));
-	})
-};
-

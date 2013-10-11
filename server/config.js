@@ -8,14 +8,6 @@ Accounts.loginServiceConfiguration.insert({
 	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
 });
 
-
-// Meteor.publish("Applications", function(skip, limit) {
-// 	return applications.find({}, {
-//   		skip: skip || 0,
-//   		limit: limit || 10
-//     });
-// });
-
 Meteor.methods({
 	checkYT: function (channel) {
 		this.unblock();
@@ -36,10 +28,7 @@ Meteor.methods({
 		// 	mine: "true"
 		// };
 		return Meteor.http.call("GET",url);
-	},
-	totalCount: function() {
-  		return applications.find().count();
-    }
+	}
 });
 
 Meteor.startup(function(){
