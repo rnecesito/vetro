@@ -466,13 +466,17 @@ Template.application_form.rendered = function(){
 	    	$('#yt_subscribers').val(jsondecoded.items[0].statistics.subscriberCount);
 	    	$('#yt_subscribers2').html(jsondecoded.items[0].statistics.subscriberCount);
 		});
+		Meteor.call("getInfo", Meteor.user().services.google.id, Meteor.user().services.google.accessToken, function(error,results){
+			var jsondecoded = json_decode(results.content);
+			console.log(jsondecoded);
+		})
 	}
 }
 
 Template.application_form.events({
 	'click #gplusconnect': function(e,t){
 		Meteor.loginWithGoogle({
-			requestPermissions: ['profile', 'email', 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly' , 'https://www.googleapis.com/auth/youtubepartner', 'https://www.googleapis.com/auth/youtubepartner-channel-audit']
+			requestPermissions: ['profile', 'email', 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly' , 'https://www.googleapis.com/auth/youtubepartner', 'https://www.googleapis.com/auth/youtubepartner-channel-audit', 'https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/userinfo.profile']
 		});
 	},
 	'click .logoutgplus': function(e,t){
@@ -594,44 +598,44 @@ function json_decode (str_json) {
 }
 
 Template.admin_backpanel.created = function() {
-	console.log("admin_backpanel Created!")
-	var _pager = new Meteor.Paginator({
-	    templates: {
-	        content: "admin_backpanel"
-	    }
-	    , pagination: {
-	        resultsPerPage: 5 //default limit
-	    }
-	    , callbacks: {
-	        onPagingCompleted: function(skip, limit) {
-	            Session.set("pagingSkip", skip);
-	            Session.set("pagingLimit", limit);
-	        }
-	        , getDependentSubscriptionsHandles: function() {
-	              return [Meteor.subHandle];
-	        }
-	        , getTotalRecords: function(cb) {
-	              //you need to return the total record count here
-	              //using the provided callback
-	              Meteor.call("totalCount", function(err, result) {
-	                cb(result);
-	              });
-	        }
-	        , onTemplateRendered: function() {
-	            //regular render code
-	        }
-	        , onTemplateCreated: function() {
-	            Session.set("pagingSkip", 0);
-	            Session.set("pagingLimit", 5);
-	        }
-	    }
-	});
+	// console.log("admin_backpanel Created!")
+	// var _pager = new Meteor.Paginator({
+	//     templates: {
+	//         content: "admin_backpanel"
+	//     }
+	//     , pagination: {
+	//         resultsPerPage: 5 //default limit
+	//     }
+	//     , callbacks: {
+	//         onPagingCompleted: function(skip, limit) {
+	//             Session.set("pagingSkip", skip);
+	//             Session.set("pagingLimit", limit);
+	//         }
+	//         , getDependentSubscriptionsHandles: function() {
+	//               return [Meteor.subHandle];
+	//         }
+	//         , getTotalRecords: function(cb) {
+	//               //you need to return the total record count here
+	//               //using the provided callback
+	//               Meteor.call("totalCount", function(err, result) {
+	//                 cb(result);
+	//               });
+	//         }
+	//         , onTemplateRendered: function() {
+	//             //regular render code
+	//         }
+	//         , onTemplateCreated: function() {
+	//             Session.set("pagingSkip", 0);
+	//             Session.set("pagingLimit", 5);
+	//         }
+	//     }
+	// });
 
-	console.log(_pager);
+	// console.log(_pager);
 
-	Deps.autorun(function() {
-		Meteor.subHandle = Meteor.subscribe("Applications", Session.get("pagingSkip"), Session.get("pagingLimit"));
-	})
+	// Deps.autorun(function() {
+	// 	Meteor.subHandle = Meteor.subscribe("Applications", Session.get("pagingSkip"), Session.get("pagingLimit"));
+	// })
 };
 
 

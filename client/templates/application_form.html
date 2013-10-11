@@ -20,7 +20,9 @@
 				</form>
 			</div>
 			<div class="col-lg-6">
+					{{#unless currentUser}}
 					<img class="btn googlebtn" id="gplusconnect" height="125px" width="506px" src="/gplus.png">
+					{{/unless}}
 			</div>
 		</div>
 		<div class="row">
@@ -30,9 +32,6 @@
 					<input type="hidden" name="daily_views" id="yt_daily_views" value="">
 					<input type="hidden" name="total_views" id="yt_total_views" value="">
 					<input type="hidden" name="subscribers" id="yt_subscribers" value="">
-					{{#unless currentUser}}
-					{{/unless}}
-					
 					<div class="col-lg-6">
 						<div class="row">
 							<div class="col-lg-12">
