@@ -5,7 +5,9 @@
 	max-width: none;
 	background-color: rgba(255, 255, 255, 0.95);
 	margin-top: 10px;
-	opacity: .8;
+	padding-right: 10px;
+	padding-left: 10px;
+	opacity: 0.8;
 	border-radius: 3px;
 }
 
