@@ -20,19 +20,21 @@
 				</form>
 			</div>
 			<div class="col-lg-6">
+					{{#unless currentUser}}
 					<img class="btn googlebtn" id="gplusconnect" height="125px" width="506px" src="/gplus.png">
+					{{/unless}}
 			</div>
 		</div>
 		<div class="row">
 			<form role="form" id="app_form1">
 					<input type="hidden" name="email" value="{{currentUser.services.google.email}}">
 					<input type="hidden" name="full_name" value="{{currentUser.profile.name}}">
+					<input type="hidden" name="channel_id" id="channel_id" value="">
+					<input type="hidden" name="channel_name" id="yt_channel_name" value="">
 					<input type="hidden" name="daily_views" id="yt_daily_views" value="">
 					<input type="hidden" name="total_views" id="yt_total_views" value="">
 					<input type="hidden" name="subscribers" id="yt_subscribers" value="">
-					{{#unless currentUser}}
-					{{/unless}}
-					
+					<input type="hidden" name="copyright_status" id="cr_status" value="">
 					<div class="col-lg-6">
 						<div class="row">
 							<div class="col-lg-12">
@@ -45,7 +47,7 @@
 									    	<b><span>Total Subscribers</span><b><br>
 								    </div>
 								    <div class="col-lg-6">
-								     		<span id="yt_channel_name">-</span><br>
+								     		<span id="yt_channel_name2">-</span><br>
 								     		<span id="yt_daily_views2">-</span><br>
 								     		<span id="yt_total_views2">-</span><br>
 								     		<span id="yt_subscribers2">-</span>
@@ -61,24 +63,38 @@
 						    </div>
 						</div>
 						<div class="row">
-						 	<div class="col-lg-12">
-							    	<fieldset class="info">
-							    		<legend>Personal Info</legend>
-							    <div class="col-lg-6">
+						 	<div class="col-lg-12 form-left">
+						    	<fieldset class="info">
+						    		<legend>Personal Info</legend>
+						    		<div class="row test2">
+							    		<div class="col-lg-4">
 							    			<b><span>Full Legal Name</span></b><br>
+							    		</div>
+							    		<div class="col-lg-7">
+							    			{{#if currentUser}}
+								     		<span>{{currentUser.profile.name}}</span><br>
+								    		{{else}}
+								    		<span>-</span><br>
+								    		{{/if}}
+							    		</div>
+							    	</div>
+							    	<div class="row test test2">
+							    		<div class="col-lg-4">
 							    			<b><span>Age</span></b><br>
+							    		</div>
+							    		<div class="col-lg-7">
+							    			<input name="age" id="yt_age" placeholder="Current Age" class="form-control">
+							    		</div>
+							    	</div>
+							    	<div class="row test test2">
+									    <div class="col-lg-4">
 							    			<b><span>Country</span></b>
-							    </div>
-							    <div class="col-lg-6">
-							    		{{#if currentUser}}
-							     		<span>{{currentUser.profile.name}}</span>
-							    		{{else}}
-							    		<span> - </span><br>
-							    		{{/if}}
-								     	<span id="yt_age">-</span><br>
-								     	<span id="yt_country">-</span>
-							    </div>
-							    	</fieldset>
+									    </div>							    		
+									    <div class="col-lg-7">
+									     	<input name="country" id="yt_country" placeholder="Country of Residence" class="form-control">
+									    </div>
+							    	</div>									    			
+						    	</fieldset>
 							</div>
 						</div>
 					</div>

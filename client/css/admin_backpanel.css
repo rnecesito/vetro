@@ -7,6 +7,8 @@
 	margin-top: 10px;
 	padding-right: 10px;
 	padding-left: 10px;
+	opacity: 0.8;
+	border-radius: 3px;
 }
 
 
@@ -71,7 +73,7 @@ thead {
 }
 
 .cs {
-	width: 205px;
+	width: 200px;
 }
 
 .table tr:hover {
@@ -194,10 +196,8 @@ thead {
 }
 
 .glyphicon-picture {
-	zoom: 150%;
+	font-size: 175%;
 	top: 0px;
-	line-height: normal !important;
-	height: 21px;
 }
 /*End of Juston's CSS*/
 

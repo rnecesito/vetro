@@ -5,7 +5,9 @@ Accounts.loginServiceConfiguration.remove({
 Accounts.loginServiceConfiguration.insert({
 	service: "google",
 	clientId: "202055712427.apps.googleusercontent.com",
-	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w"
+	secret: "Wc9ELISnDLNZ-BBGTVbKUJ7w",
+	responseType: "token",
+	requestPermissions: ['profile', 'email', 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly' , 'https://www.googleapis.com/auth/youtubepartner', 'https://www.googleapis.com/auth/youtubepartner-channel-audit', 'https://www.googleapis.com/auth/plus.me']
 });
 
 Meteor.methods({
@@ -13,14 +15,21 @@ Meteor.methods({
 		this.unblock();
 		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&forUsername="+channel+"&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY");
 	},
-	checkYT2: function (channel) {
+	checkYT2: function (token) {
 		this.unblock();
-		var at = Meteor.user().services.google.accessToken;
-		return Meteor.http.call("GET", "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY&access_token="+at);
+		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2CbrandingSettings%2Cstatistics%2Csnippet%2CauditDetails&mine=true&access_token="+token;
+		var retdata = Meteor.http.call("GET", url);
+		return retdata;
+	},
+	getInfo: function (id) {
+		this.unblock();
+		var url = "https://www.googleapis.com/plus/v1/people/"+id+"?fields=currentLocation&key=AIzaSyALbPVvp9FMelje4d8kWqtF3kPzwzoKJZ4";
+		var retdata = Meteor.http.call("GET", url);
+		return retdata;
 	},
 	test_fn: function() {
 		this.unblock();
-		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&key=AIzaSyDL6F2UDnezIht4VT-nnKpD_vZSu1ujEyY&access_token="+Meteor.user().services.google.accessToken;
+		var url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails%2Cstatistics%2Csnippet&mine=true&key=AIzaSyALbPVvp9FMelje4d8kWqtF3kPzwzoKJZ4&access_token="+Meteor.user().services.google.accessToken;
 		console.log(url);
 		// var params = {
 		// 	access_token: Meteor.user().services.google.accessToken,
