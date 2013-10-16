@@ -24,7 +24,6 @@ Router.map(function(){
 });
 
 
-
 Template.admin_backpanel.rendered = function(){
 	!function ($) {
 		$(document).on('click.bootstrap-toggle', '[data-toggle^=toggle]', function(e) {
@@ -42,82 +41,36 @@ Template.admin_backpanel.rendered = function(){
 		});
 	}(window.jQuery);
 
-	$(document).ready(function() {
-$('.atable').dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
-    , "sPaginationType": "bootstrap"
-    , "oLanguage": {
-        "sLengthMenu": "_MENU_ records per page"
-    },
-    "aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
-});
-});
+   $(".dropdown-toggle").click(function(e) {
+		Session.set('dd_id', this._id);
+  		console.log("pass_status2");
+  });
 
+  $(".status_option").click(function(e) {
+		applications.update({_id:Session.get('dd_id')},{$set:{status:this.ns}});
+  		console.log("pass_status");
+  });
 
-    // if (!($("#tabletest").hasClass("dataTable"))) {
-    //     $('#tabletest').dataTable({
-    //         "aaSorting": []
-    //         , "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
-    //         , "sPaginationType": "bootstrap"
-    //         , "oLanguage": {
-    //             "sLengthMenu": "_MENU_ records per page"
-    //         }
-    //         , "aoColumns": [
-    //             { "sTitle": "First Data", "mData": function (data) { return data.firstData },
-    //         } ]
-        
-    //     });
+	// $(document).ready(function() {
+	//       if (!($('#atable').hasClass("dataTable"))) {
+	//         $('#atable').dataTable({
+	//         "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
+	//   	    , "sPaginationType": "bootstrap"
+	//     	, "oLanguage": {
+	//         "sLengthMenu": "_MENU_ records per page"
+	//     },
+	//  		"aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
+	//         });
 
-    //     $('#tabletest').dataTable().fnClearTable();
-    //     $('#tabletest').dataTable().fnAddData(Collection.find().fetch());
-    // }
-
-
-
-// 	$(document).ready(function() {
-// 		console.log("test")
-// 	$('.atable').dataTable( {
-// 		"aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
-// 		       } );
-// 		    } );
-
-// 	$.extend( true, $.fn.dataTableExt.oStdClasses, {
-// 		"sPaginationType": "bootstrap",
-// 	    "sWrapper": "dataTables_wrapper form-inline"
-// 	} );
-
-// $("#row").click(function(e) {
-// 			alert("test");
-//             // Constant retrieved from server-side via JSP
-//             var maxRows = 2;
-
-//             var table = document.getElementById('adtable');
-//             var wrapper = table.parentNode;
-//             var rowsInTable = table.rows.length;
-//             var height = 0;
-//             if (rowsInTable > maxRows) {
-//                 for (var i = 0; i < maxRows; i++) {
-//                     height += table.rows[i].clientHeight;
-//                 }
-//                 wrapper.style.height = height + "px";
-//             }
-//         });
-
-	// $("#btnExport").click(function(e) {
- //      	var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' + $('#admintable').html();
-	//   	var downloadLink = document.createElement("a");
-	// 	downloadLink.href = uri;
-	// 	downloadLink.download = "backpanel-data.xls";
-
-	// 	document.body.appendChild(downloadLink);
-	// 	downloadLink.click();
-	// 	document.body.removeChild(downloadLink);
-
- // 		myWindow.focus();
- //    	e.preventDefault();
-	// });
+	//         // $('#atable').dataTable().fnDraw();
+	//         // $('#atable').dataTable().fnUpdate( [full_name, 'b', 'c', 'd', 'e'], 1 );
+	//         // $('#atable').dataTable().fnClearTable();
+	//         // $('#atable').dataTable().fnAddData(Collection.find().fetch());
+	//     }
+	//   });
 
 }
+
 
 Template.to_excel.rendered = function(){
 	$("#btnExport").click(function(e) {
@@ -259,13 +212,14 @@ Template.admin_backpanel.events({
 		}else{
 			applications.update({_id:this._id},{$set:{copyright_status:true}});
 		}
-	},
-	"click .dropdown-toggle": function(){
-		Session.set('dd_id', this._id);
-	},
-	"click .status_option": function(){
-		applications.update({_id:Session.get('dd_id')},{$set:{status:this.ns}});
 	}
+	// },
+	// "click .dropdown-toggle": function(){
+	// 	Session.set('dd_id', this._id);
+	// },
+	// "click .status_option": function(){
+	// 	applications.update({_id:Session.get('dd_id')},{$set:{status:this.ns}});
+	// }
 });
 
 Template.applied.events({

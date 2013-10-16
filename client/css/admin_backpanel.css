@@ -139,7 +139,7 @@ thead {
 }
 
 .btn.active {
-  background-color: rgba(241, 60, 60, 0.9) !important;
+  background-color: rgba(241, 60, 60, 0.95) !important;
   /**background-color: #d9d9d9 !important;*/
 }
 
@@ -183,7 +183,14 @@ thead {
 	margin-left: 2px;
 	top: 3px;
 	zoom: 110%;
-	color: #505050
+}
+
+.glyph-good {
+	color: #B2B2B2;
+}
+
+.glyph-not {
+	color: #212121;
 }
 
 .glyphicon-picture {
