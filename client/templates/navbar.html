@@ -5,16 +5,16 @@
 			<img src="sm-facebook.png">
 			<img src="sm-gplus.png">
 			<img src="sm-youtube.png">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="">
+				</a>
+			</div>
 		</div>
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="">
-		</div>
-		</a>
 		<div class="row col-lg-6 nav-to-right">
 			<div class="row col-lg-6 nav-to-right nav-search">
 			<input name="search" placeholder="Search site..." class="form-control contact-input">
@@ -49,41 +49,41 @@
 				</ul>
 			</div>
 			<div class="row col-lg-12 nav-to-right">
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav custom-nav-lower">
-					<a href="{{pathFor 'index'}}">
-						<li class="active nav-li" id="home-container">
-							Home
-						</li>
-					</a>
-					<a href="{{pathFor 'about'}}">
-						<li class="nav-li" id="home-container">
-							About Us
-						</li>
-					</a>
-					<a href="{{pathFor 'application_form'}}">
-						<li class="nav-li" id="home-container">
-							Apply
-						</li>
-					</a>
-					<a href="{{pathFor 'programs'}}">
-						<li class="nav-li" id="home-container">
-							Creator Programs
-						</li>
-					</a>
-					<a href="{{pathFor 'faqs'}}">
-						<li class="nav-li" id="home-container">
-							FAQs
-						</li>
-					</a>
-					<a href="{{pathFor 'contact'}}">
-						<li class="nav-li" id="home-container">
-							Contact Us
-						</li>
-					</a>
-				</ul>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav custom-nav-lower">
+						<a href="{{pathFor 'index'}}">
+							<li class="nav-li menu-li" id="index">
+								Home
+							</li>
+						</a>
+						<a href="{{pathFor 'about'}}">
+							<li class="nav-li menu-li" id="about">
+								About Us
+							</li>
+						</a>
+						<a href="{{pathFor 'partnership'}}">
+							<li class="nav-li menu-li" id="partnership">
+								Apply
+							</li>
+						</a>
+						<a href="{{pathFor 'programs'}}">
+							<li class="nav-li menu-li" id="programs">
+								Creator Programs
+							</li>
+						</a>
+						<a href="{{pathFor 'faqs'}}">
+							<li class="nav-li menu-li" id="faqs">
+								FAQs
+							</li>
+						</a>
+						<a href="{{pathFor 'contact'}}">
+							<li class="nav-li menu-li" id="contact">
+								Contact Us
+							</li>
+						</a>
+					</ul>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 </template>

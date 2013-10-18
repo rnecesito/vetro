@@ -4,6 +4,10 @@ body{
 	font-family: 'Cuprum', sans-serif;
 }
 
+.nav a li {
+	display: inline;
+}
+
 .navbar {
 	border-radius: 0px;
 }
@@ -27,7 +31,7 @@ body{
 	width: 85px;
 	position: absolute;
 	top: 38px;
-	left: 118px;
+	left: 53px;
 	/*margin: 30px 0 0 30px;*/
 }
 
@@ -51,13 +55,31 @@ body{
 	border-left: 2px groove #555;
 }
 
-.navbar-nav li a {
-	padding: 7px 15px;
-	padding-bottom: 6px;
-	font-family: 'Calibri', sans-serif;
+.navbar a {
+	color: #FFF;
+	text-decoration: none;
 }
 
+.navbar-nav a li {
+	padding: 7px 12px;
+	padding-bottom: 6px;
+	font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+
+/*
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+	color: #89B9FF;
+	background-color: transparent;
+}
+*/
+
+.active {
+	color: #89B9FF;
+	background-color: transparent;
+}
+
+.nav-li:hover {
 	color: #89B9FF;
 	background-color: transparent;
 }

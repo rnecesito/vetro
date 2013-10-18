@@ -9,7 +9,7 @@ Router.map(function(){
 	this.route('programs',{path: '/programs'});
 	this.route('faqs',{path: '/faqs'});
 	this.route('contact',{path: '/contact'});
-	this.route('application_form',{path: '/partnership'});
+	this.route('partnership',{path: '/partnership'});
 	this.route('admin_backpanel', {path: '/admin'});
 	this.route('login');
 	this.route('oauthtest');
