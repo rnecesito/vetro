@@ -119,9 +119,9 @@ body{
 }
 
 .banner {
-	background: url('/vetro-banner.jpg') center no-repeat;
+	/*background: url('/vetro-banner.jpg') center no-repeat;
 	height: 400px;
-	background-size: cover;
+	background-size: cover;*/
 	margin-top: 130px;
 }
 
@@ -148,6 +148,9 @@ body{
 
 .partners-container {
 	padding: 0 50px 90px;
+	background: url('/worldmap.png') no-repeat center;
+	background-size: cover;
+
 }
 
 .partners-container h3 {
@@ -159,7 +162,7 @@ body{
 }
 
 .footer-upper {
-	background: #888;
+	background: url('/top-footer-pattern.jpg');
 	padding: 20px 50px;
 }
 
