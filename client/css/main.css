@@ -1,7 +1,7 @@
 /*Rey's CSS*/
 
 body{
-
+	font-family: 'Cuprum', sans-serif;
 }
 
 .navbar {
@@ -54,6 +54,7 @@ body{
 .navbar-nav li a {
 	padding: 7px 15px;
 	padding-bottom: 6px;
+	font-family: 'Calibri', sans-serif;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
@@ -93,6 +94,7 @@ body{
 
 .custom-nav-upper li a {
 	line-height: 7px;
+	font-size: 12px;
 }
 
 .custom-nav-lower {
@@ -105,7 +107,8 @@ body{
 }
 
 .custom-nav-lower li a {
-	color: #FFF;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .wrapper {
@@ -119,12 +122,13 @@ body{
 
 .home-container h3, .home-container h4 {
 	color: #151515;
+	font-family: 'Cuprum', sans-serif;
+	font-weight: bold;
 }
 
-.banner {
-	background: url('/vetro-banner.jpg') center no-repeat;
-	height: 400px;
-	background-size: cover;
+.banner img {
+	margin: 0 auto;
+	background: 100%;
 }
 
 .home-main {
@@ -150,6 +154,9 @@ body{
 
 .partners-container {
 	padding: 0 50px 90px;
+	background: url('/worldmap.png') no-repeat center;
+	background-size: cover;
+
 }
 
 .partners-container h3 {
@@ -161,7 +168,7 @@ body{
 }
 
 .footer-upper {
-	background: #888;
+	background: url('/top-footer-pattern.jpg');
 	padding: 20px 50px;
 }
 
