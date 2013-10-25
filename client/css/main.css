@@ -31,7 +31,7 @@ body{
 	width: 85px;
 	position: absolute;
 	top: 38px;
-	left: 53px;
+	left: 75px;
 	/*margin: 30px 0 0 30px;*/
 }
 
@@ -85,6 +85,10 @@ body{
 }
 
 /* FRO's CSS */
+
+.container {
+	margin-top: 0;
+}
 
 .nav-social-icons {
 	margin-left: 18px;
@@ -150,11 +154,16 @@ body{
 
 .banner img {
 	margin: 0 auto;
-	background: 100%;
+	width: 100%;
+	display: block;
 }
 
 .home-main {
 	padding: 40px 50px 50px;
+}
+
+.home-main img {
+	width: 100%;
 }
 
 .home-main h3 {
@@ -174,11 +183,18 @@ body{
 	padding: 0 50px;
 }
 
+.youtube-tools img {
+	width: 100%;
+}
+
 .partners-container {
 	padding: 0 50px 90px;
 	background: url('/worldmap.png') no-repeat center;
 	background-size: cover;
+}
 
+.partners-container img {
+	width: 100%;
 }
 
 .partners-container h3 {
@@ -203,6 +219,10 @@ body{
 	padding: 0 50px 10px;
 }
 
+.footer-lower img {
+	width: 100%;
+}
+
 .footer-lower h3 {
 	text-align: center;
 }
@@ -218,9 +238,9 @@ body{
 }
 
 .vetro-image-footer {
-	margin-left: 32%;
 	display: block;
-	margin-bottom: 15px;
+	margin-top: 15px;
+	margin-bottom: 20px;
 }
 
 .contact-us {
@@ -234,11 +254,18 @@ body{
 	border-radius: 0px;
 }
 
+.contact-submit {
+	margin-left: 29%;
+	width: 42%;
+}
+
+
 .message-box {
 	height: 80px !important;
 	background: #2b2b2b;
 	border-color: #2b2b2b;
 	border-radius: 0px;
+	margin-bottom: 10px;
 }
 
 .home-container img {
