@@ -9,9 +9,11 @@ insecure
 preserve-inputs
 
 iron-router
-bootstrap-3
 accounts-google
 accounts-ui
 http
 
 datatables
+
+paginator
+bootstrap-3

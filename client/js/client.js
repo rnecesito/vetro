@@ -10,7 +10,7 @@ Router.map(function(){
 	this.route('faqs',{path: '/faqs'});
 	this.route('contact',{path: '/contact'});
 	this.route('partnership',{path: '/partnership'});
-	this.route('admin_backpanel', {path: '/admin'});
+	this.route('admin_backpanel', {path: '/admin/'});
 	this.route('login');
 	this.route('oauthtest');
 	this.route('application_success',{path: '/partnership/success'});
