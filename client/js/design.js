@@ -4,6 +4,7 @@ Meteor.startup(function(){
 Template.index.rendered = function () {
 	Session.set('page', 'index');
 	setMenu();
+	$("ul").last().addClass("pagination");
 };
 
 Template.about.rendered = function () {

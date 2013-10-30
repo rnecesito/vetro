@@ -26,4 +26,5 @@ Router.map(function(){
 	this.route('removed', {path: '/admin/removed'});
 	this.route('blacklisted', {path: '/admin/blacklisted'});
 	this.route('completed', {path: '/admin/completed'});
+	this.route('dashboard', {path: '/dashboard'});
 });

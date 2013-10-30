@@ -1,9 +1,4 @@
 Template.admin_backpanel.rendered = function(){
-/*	!function ($) {
-
-	}(window.jQuery);*/
-
-	$(document).ready(function() {
 
 	/*	$(document).on('click.bootstrap-toggle', '[data-toggle^=toggle]', function(e) {
 			var $toggle = $(this);
@@ -17,25 +12,8 @@ Template.admin_backpanel.rendered = function(){
 				$input.prop('checked', false);
 				$toggle.addClass('off');
 			}
-		});
-
-		$('.atable').dataTable({
-		    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
-		    , "sPaginationType": "bootstrap"
-		    , "oLanguage": {
-		        "sLengthMenu": "_MENU_ records per page"
-		    },
-		    "aLengthMenu": [[1, 3, 6, -1], [1, 3, 6, "All"]]
 		});*/
 
-		$(document).ready(function() {
-   			 $('#example').dataTable({
-			    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
-			    , "sPaginationType": "bootstrap"
-			    , "oLanguage": {
-			        "sLengthMenu": "_MENU_ records per page"
-			    }
-			});
 
    			  $('#atable').dataTable({
 			    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>"
@@ -44,8 +22,11 @@ Template.admin_backpanel.rendered = function(){
 			        "sLengthMenu": "_MENU_ records per page"
 			    }
 			});
-		} );
-	});
+   			//  console.log("" + $("ul").last().addClass("pagination"));
+
+   			  	$("ul").last().addClass("pagination");
+
+
 }
 
 Template.to_excel.rendered = function(){
