@@ -274,7 +274,6 @@ body{
     vertical-align: middle;
 }
 
-<<<<<<< HEAD
 .sidebar{
 	min-height: 1000px;
 	background-image:url('/SidebarBackground_02.png') ;
@@ -348,8 +347,7 @@ body{
 #sidebar-settings:hover{
 	color: #428bca;
 	text-decoration: none;
-=======
+}
 .logo-footer {
 	margin-left: 34%;
->>>>>>> a12f49093353a683577fd290d7f31617795e6708
 }
