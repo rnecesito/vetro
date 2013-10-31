@@ -280,9 +280,11 @@ body{
 	background-repeat: repeat-y;
 }
 
-.right-content{
+.right-content {
 	background: #FFF;
 	min-height: 600px;
+	padding: 30px;
+	color: #404041;
 }
 
 .logo-container-left{
@@ -350,4 +352,19 @@ body{
 }
 .logo-footer {
 	margin-left: 34%;
+}
+
+/*FRO's dashboard CSS*/
+
+.date-header {
+	margin-bottom: 20px;
+}
+
+.first-date-header {
+	display: inline-block;
+}
+
+.second-date-header {
+	display: inline-block;
+	color: #888;
 }

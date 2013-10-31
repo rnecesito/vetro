@@ -133,11 +133,11 @@ thead {
 }
 
 .btn.dropdown-toggle {
-	background-color: #E2EEFF;
-	background-image: none !important;
+	/*background-color: #E2EEFF;
+	background-image: none !important;*/
 	border-color: #49CDCD;
 	padding: 6px 5px;
-	font-size: 13px;
+	/*font-size: 13px;*/
 }
 
 .btn.active {
